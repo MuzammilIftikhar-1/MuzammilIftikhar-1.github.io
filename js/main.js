@@ -32,6 +32,8 @@ const soundToggle = document.querySelector("#soundToggle");
 const soundState = document.querySelector("#soundState");
 const contactForm = document.querySelector("#contactForm");
 const cursorRing = document.querySelector("#cursorRing");
+const loadingScreen = document.querySelector("#loadingScreen");
+const loaderProgress = document.querySelector("#loaderProgress");
 
 const storageKeys = {
   theme: "muzammil-portfolio-theme",
@@ -48,6 +50,7 @@ let slideshowIndex = 0;
 let slideshowPaused = false;
 const storedSoundPreference = localStorage.getItem(storageKeys.sound);
 const slideDuration = 3400;
+const loadStartedAt = performance.now();
 
 const state = {
   page: validPages.includes(location.hash.replace("#", ""))
@@ -979,3 +982,42 @@ renderStaticContent();
 applyTheme(state.theme);
 updateSoundUi();
 setPage(state.page, false);
+
+function hideLoader() {
+  if (!loadingScreen) {
+    return;
+  }
+
+  const elapsed = performance.now() - loadStartedAt;
+  const remaining = Math.max(0, 1250 - elapsed);
+
+  window.setTimeout(() => {
+    if (loaderProgress) {
+      loaderProgress.textContent = "100%";
+    }
+
+    loadingScreen.classList.add("is-hidden");
+    window.setTimeout(() => loadingScreen.remove(), 520);
+  }, remaining);
+}
+
+if (loadingScreen) {
+  let progress = 0;
+  const progressTimer = window.setInterval(() => {
+    progress = Math.min(progress + Math.ceil(Math.random() * 12), 96);
+    if (loaderProgress) {
+      loaderProgress.textContent = `${progress}%`;
+    }
+
+    if (progress >= 96) {
+      window.clearInterval(progressTimer);
+    }
+  }, 110);
+
+  window.addEventListener("load", () => {
+    window.clearInterval(progressTimer);
+    hideLoader();
+  });
+
+  window.setTimeout(hideLoader, 2600);
+}

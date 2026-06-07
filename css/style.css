@@ -3318,3 +3318,172 @@ button {
     justify-self: start;
   }
 }
+
+/* Final mobile publish polish */
+.loading-screen {
+  display: grid;
+}
+
+.loading-screen.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-window {
+  border-color: rgba(232, 237, 247, 0.72);
+}
+
+.loader-controller {
+  border-color: #dfe7f5;
+  box-shadow: 0 0 22px rgba(223, 231, 245, 0.16);
+}
+
+.loader-controller::before {
+  background:
+    linear-gradient(#dfe7f5, #dfe7f5) center / 17px 4px no-repeat,
+    linear-gradient(#dfe7f5, #dfe7f5) center / 4px 17px no-repeat;
+}
+
+@media (max-width: 700px) {
+  .site-shell[data-view="about"] .page-bottom-actions {
+    position: fixed;
+    top: 15px;
+    right: 16px;
+    bottom: auto;
+    left: auto;
+    z-index: 72;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    width: auto;
+    transform: none;
+  }
+
+  .site-shell[data-view="about"] .page-bottom-actions .bracket-button {
+    width: auto;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .site-shell[data-view="about"] .page-bottom-actions .bracket-button:nth-child(2) {
+    font-size: 0;
+  }
+
+  .site-shell[data-view="about"] .page-bottom-actions .bracket-button:nth-child(2)::after {
+    content: "[ Touch ]";
+    font-size: 0.72rem;
+  }
+
+  .site-shell[data-view="about"] .back-link {
+    max-width: 112px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .site-shell[data-view="portfolio"] .top-bar {
+    align-items: flex-start;
+    padding: 15px 16px;
+  }
+
+  .site-shell[data-view="portfolio"] .top-bar__right {
+    position: fixed;
+    top: 15px;
+    right: 16px;
+    z-index: 72;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .site-shell[data-view="portfolio"] .top-portfolio-link {
+    display: none;
+  }
+
+  .site-shell[data-view="portfolio"] .top-contact-link {
+    display: inline-flex;
+    font-size: 0.72rem;
+    white-space: nowrap;
+  }
+
+  .site-shell[data-view="portfolio"] .back-link {
+    max-width: 138px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .site-shell[data-view="portfolio"] .portfolio-heading {
+    top: 64px;
+    left: 16px;
+    right: 16px;
+  }
+
+  .site-shell[data-view="portfolio"] .portfolio-tools {
+    justify-content: flex-end;
+  }
+
+  .site-shell[data-view="portfolio"] .category-dropdown .dropdown__trigger {
+    max-width: min(240px, calc(100vw - 32px));
+    overflow: hidden;
+    font-size: 0.76rem;
+  }
+
+  .site-shell[data-view="portfolio"] .category-dropdown .dropdown__trigger span:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .page--portfolio .project-overlay {
+    inset: 0;
+    align-items: flex-end;
+    padding: 0 18px 126px;
+  }
+
+  .page--portfolio .project-meta {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 178px;
+    width: auto;
+    max-width: 100%;
+    padding: 14px 15px;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.18));
+  }
+
+  .page--portfolio .project-meta::before {
+    display: none;
+  }
+
+  .page--portfolio .project-meta h3 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 0.98;
+  }
+
+  .page--portfolio .project-tags {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    line-height: 1.45;
+  }
+
+  .page--portfolio .project-description {
+    display: -webkit-box;
+    max-height: 3.1em;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .loader-game {
+    width: min(330px, 88vw);
+  }
+
+  .loader-window {
+    height: 104px;
+  }
+}

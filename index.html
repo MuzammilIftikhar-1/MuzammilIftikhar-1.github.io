@@ -12,6 +12,19 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <div class="loading-screen" id="loadingScreen" aria-label="Loading portfolio">
+      <div class="loader-game">
+        <div class="loader-window" aria-hidden="true">
+          <span class="loader-controller"></span>
+          <span class="loader-ground"></span>
+        </div>
+        <div class="loader-progress">
+          <span>Loading portfolio</span>
+          <strong id="loaderProgress">0%</strong>
+        </div>
+      </div>
+    </div>
+
     <div class="site-shell theme-blue" id="siteShell">
       <div class="background-layer" id="backgroundLayer" aria-hidden="true"></div>
       <div class="mist-layer" aria-hidden="true"></div>
