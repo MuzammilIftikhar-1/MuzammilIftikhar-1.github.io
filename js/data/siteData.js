@@ -213,7 +213,7 @@ window.siteData = {
       links: [],
     },
     {
-      title: "Snowy Mountain Outpost Environment",
+      title: "Snowy Mountain Outpost",
       category: "Environments",
       tags: "Unreal Engine Fortnite Editor | Lighting | Environment Art",
       description:
