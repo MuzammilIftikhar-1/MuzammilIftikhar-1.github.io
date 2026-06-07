@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Multiplayer Parkour Game thumbnail</title>
+  <desc id="desc">Clean vertical traversal forms with misty mountain light.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fbfcff"/>
+      <stop offset="0.46" stop-color="#dde5f1"/>
+      <stop offset="1" stop-color="#7a55d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M0 548 C180 472 312 500 458 546 C634 604 790 540 930 480 C1070 418 1194 438 1280 390 L1280 720 L0 720 Z" fill="#101b34" opacity="0.14"/>
+  <rect x="230" y="330" width="140" height="260" rx="8" fill="#ffffff" opacity="0.32"/>
+  <rect x="470" y="250" width="150" height="340" rx="8" fill="#ffffff" opacity="0.28"/>
+  <rect x="724" y="190" width="170" height="400" rx="8" fill="#ffffff" opacity="0.24"/>
+  <path d="M285 318 L520 238 L808 178" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+</svg>

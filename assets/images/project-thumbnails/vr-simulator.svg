@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">VR Simulator thumbnail</title>
+  <desc id="desc">Misty blue training space inspired by Unreal Engine VR development.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f8fbff"/>
+      <stop offset="0.52" stop-color="#bac9e6"/>
+      <stop offset="1" stop-color="#4f6fdc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M0 500 C160 410 290 420 430 488 C590 566 770 520 915 450 C1055 382 1178 402 1280 350 L1280 720 L0 720 Z" fill="#101b34" opacity="0.18"/>
+  <rect x="190" y="160" width="900" height="400" rx="8" fill="#ffffff" opacity="0.16" stroke="#ffffff" stroke-opacity="0.34"/>
+  <circle cx="640" cy="360" r="122" fill="#ffffff" opacity="0.16"/>
+  <path d="M540 352 H740 M640 252 V452" stroke="#ffffff" stroke-width="9" opacity="0.56"/>
+</svg>

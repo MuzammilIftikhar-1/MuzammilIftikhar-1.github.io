@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-labelledby="title desc">
+  <title id="title">Profile placeholder</title>
+  <desc id="desc">Dark borderless developer profile placeholder with MI initials.</desc>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="36%" r="46%">
+      <stop offset="0" stop-color="#2d3350"/>
+      <stop offset="0.56" stop-color="#10131f"/>
+      <stop offset="1" stop-color="#020304"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="1" y2="0">
+      <stop offset="0" stop-color="#4f6fdc"/>
+      <stop offset="0.5" stop-color="#7a55d9"/>
+      <stop offset="1" stop-color="#f2a22c"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="900" fill="url(#glow)"/>
+  <path d="M0 620 C120 548 228 574 350 630 C482 690 590 660 720 590 L720 900 L0 900 Z" fill="#05070c" opacity="0.84"/>
+  <path d="M0 730 C158 660 278 690 402 732 C520 772 616 730 720 682 L720 900 L0 900 Z" fill="#121826" opacity="0.72"/>
+  <circle cx="360" cy="344" r="132" fill="#ffffff" opacity="0.06"/>
+  <circle cx="360" cy="344" r="92" fill="url(#accent)" opacity="0.18"/>
+  <path d="M224 724 C240 610 288 548 360 548 C432 548 480 610 496 724 Z" fill="#f6f0e8" opacity="0.1"/>
+  <text x="360" y="386" text-anchor="middle" font-family="Georgia, serif" font-size="96" fill="#f6f0e8">MI</text>
+</svg>

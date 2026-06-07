@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Portfolio website for Muzammil Iftikhar, Game Developer and Designer."
+    >
+    <title>Muzammil Iftikhar | Game Developer & Designer</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="site-shell theme-blue" id="siteShell">
+      <div class="background-layer" id="backgroundLayer" aria-hidden="true"></div>
+      <div class="mist-layer" aria-hidden="true"></div>
+
+      <header class="top-bar" id="topBar">
+        <div class="top-bar__left">
+          <button class="logo-button sound-action" type="button" data-route="home" aria-label="Go to home">
+            MI
+          </button>
+          <button class="text-link back-link sound-action" id="backButton" type="button" data-route="home">
+            &larr; Back to Home
+          </button>
+        </div>
+
+        <div class="top-bar__right">
+          <button class="bracket-button top-contact-link sound-action" type="button" data-route="contact">[ Get in Touch ]</button>
+          <button class="bracket-button top-portfolio-link sound-action" type="button" data-route="portfolio">[ Portfolio ]</button>
+        </div>
+      </header>
+
+      <main class="page-stack" id="pageStack">
+        <section class="page page--home is-active" id="homePage" data-page="home" aria-labelledby="homeTitle">
+          <div class="home-center">
+            <h1 class="hero-title" id="homeTitle">Muzammil Iftikhar</h1>
+            <p class="hero-subtitle" id="homeSubtitle">Game Designer and Developer</p>
+            <div class="home-actions is-hidden" aria-label="Primary navigation">
+              <button class="bracket-button sound-action" type="button" data-route="about">[ About Me ]</button>
+              <button class="bracket-button sound-action" type="button" data-route="portfolio">[ Portfolio ]</button>
+              <button class="bracket-button sound-action" type="button" data-route="contact">[ Get in Touch ]</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="page page--about" id="aboutPage" data-page="about" aria-labelledby="aboutTitle">
+          <div class="content-grid about-grid">
+            <figure class="profile-card">
+              <img id="profileImage" src="" alt="Muzammil Iftikhar profile image">
+              <figcaption id="profileCaption">Developer Profile</figcaption>
+            </figure>
+
+            <article class="about-copy">
+              <p class="section-kicker">About Me</p>
+              <h2 class="page-title" id="aboutTitle">Developer Profile</h2>
+              <p class="lead-text" id="aboutText"></p>
+
+              <div class="about-stats" id="aboutStats" aria-label="Profile statistics"></div>
+
+              <div class="about-sections" id="aboutSections" aria-label="Profile details"></div>
+            </article>
+          </div>
+
+          <div class="page-bottom-actions">
+            <button class="bracket-button sound-action" type="button" data-route="portfolio">[ Portfolio ]</button>
+            <button class="bracket-button sound-action" type="button" data-route="contact">[ Get in Touch ]</button>
+          </div>
+        </section>
+
+        <section class="page page--portfolio" id="portfolioPage" data-page="portfolio" aria-labelledby="portfolioTitle">
+          <div class="portfolio-heading">
+            <div>
+              <p class="section-kicker">Selected Work</p>
+              <h2 class="page-title" id="portfolioTitle">Portfolio / Unreal Engine Projects</h2>
+            </div>
+
+            <div class="portfolio-tools">
+              <div class="dropdown category-dropdown" id="categoryDropdown">
+                <button
+                  class="bracket-button dropdown__trigger sound-action"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="categoryList"
+                >
+                  <span id="categoryLabel">Unreal Engine Projects</span>
+                  <span class="chevron">v</span>
+                </button>
+                <div class="dropdown__list" id="categoryList" role="listbox" aria-label="Project category"></div>
+              </div>
+            </div>
+          </div>
+
+          <article class="project-stage" id="projectStage">
+            <div class="video-frame" id="videoFrame">
+              <video
+                id="projectVideo"
+                muted
+                playsinline
+                autoplay
+                preload="metadata"
+              ></video>
+              <img id="projectPoster" class="project-poster" alt="">
+              <div class="video-fallback" id="videoFallback" aria-hidden="true"></div>
+              <div class="project-overlay">
+                <div class="project-meta">
+                  <h3 id="projectTitle"></h3>
+                  <p class="project-tags" id="projectTags"></p>
+                  <p class="project-description" id="projectDescription"></p>
+                  <div class="project-links" id="projectLinks" aria-label="Project links"></div>
+                </div>
+
+                <div class="video-controls" aria-label="Video controls">
+                  <button class="icon-button sound-action" type="button" id="playButton" aria-label="Play or pause video">
+                    <span id="playIcon">▶</span>
+                  </button>
+                  <button class="icon-button sound-action" type="button" id="muteButton" aria-label="Mute or unmute video">
+                    <span id="muteIcon">◕</span>
+                  </button>
+                  <div class="progress-track" aria-hidden="true">
+                    <span id="progressFill"></span>
+                  </div>
+                  <span class="duration-text" id="durationText">0:00</span>
+                </div>
+              </div>
+              <button class="project-prev-button sound-action" type="button" id="prevProjectButton" aria-label="Previous project">
+                <strong>&lt;</strong>
+              </button>
+              <button class="project-next-button sound-action" type="button" id="nextProjectButton" aria-label="Next project">
+                <strong>&gt;</strong>
+              </button>
+            </div>
+          </article>
+        </section>
+
+        <section class="page page--contact" id="contactPage" data-page="contact" aria-labelledby="contactTitle">
+          <div class="contact-heading">
+            <h2 class="page-title" id="contactTitle">Get in touch and tell me about your project.</h2>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <div class="form-heading">
+              <p class="section-kicker">Direct Message</p>
+              <h3>Send A Message</h3>
+            </div>
+            <div class="form-row">
+              <label>
+                <span>Your Name</span>
+                <input type="text" name="name" autocomplete="name" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+            </div>
+            <label>
+              <span>Phone Number</span>
+              <input type="tel" name="phone" autocomplete="tel">
+            </label>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button class="bracket-button sound-action" type="submit">[ Send Message ]</button>
+          </form>
+
+          <div class="contact-grid" id="contactGrid" aria-label="Get in touch links"></div>
+        </section>
+      </main>
+
+      <aside class="ambient-controls" aria-label="Site settings">
+        <label class="sound-toggle">
+          <span>Click Sound</span>
+          <input id="soundToggle" type="checkbox" aria-label="Toggle click sound">
+          <span class="toggle-ui" aria-hidden="true"></span>
+          <strong id="soundState">Off</strong>
+        </label>
+
+        <div class="theme-switcher" role="group" aria-label="Theme color">
+          <span>Theme</span>
+          <button class="theme-dot theme-dot--blue sound-action" type="button" data-theme="blue" aria-label="Blue theme"></button>
+          <button class="theme-dot theme-dot--purple sound-action" type="button" data-theme="purple" aria-label="Purple theme"></button>
+          <button class="theme-dot theme-dot--amber sound-action" type="button" data-theme="amber" aria-label="Amber theme"></button>
+          <button class="theme-dot theme-dot--teal sound-action" type="button" data-theme="teal" aria-label="Teal theme"></button>
+          <button class="theme-dot theme-dot--rose sound-action" type="button" data-theme="rose" aria-label="Rose theme"></button>
+          <button class="theme-dot theme-dot--lime sound-action" type="button" data-theme="lime" aria-label="Lime theme"></button>
+        </div>
+      </aside>
+      <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+    </div>
+
+    <script src="js/data/siteData.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">UEFN 1v1 Ability Arena thumbnail</title>
+  <desc id="desc">Soft arena forms with blue, purple, and amber ability accents.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fbfcff"/>
+      <stop offset="0.46" stop-color="#d9e0ed"/>
+      <stop offset="1" stop-color="#7a55d9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M0 546 C206 470 390 490 570 540 C744 588 916 554 1280 456 L1280 720 L0 720 Z" fill="#101b34" opacity="0.14"/>
+  <ellipse cx="640" cy="410" rx="390" ry="156" fill="#ffffff" opacity="0.24" stroke="#ffffff" stroke-opacity="0.42" stroke-width="4"/>
+  <path d="M470 410 L640 268 L810 410 L640 552 Z" fill="#ffffff" opacity="0.18"/>
+  <circle cx="510" cy="410" r="52" fill="#4f6fdc" opacity="0.54"/>
+  <circle cx="770" cy="410" r="52" fill="#f2a22c" opacity="0.56"/>
+</svg>

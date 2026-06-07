@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Cinematic Environment Study thumbnail</title>
+  <desc id="desc">Dark cinematic environment thumbnail with misty ruins and soft blue light.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#05070c"/>
+      <stop offset="0.48" stop-color="#161b2b"/>
+      <stop offset="1" stop-color="#4f6fdc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M0 520 C180 430 340 448 500 510 C690 584 860 540 1030 462 C1135 414 1215 408 1280 380 L1280 720 L0 720 Z" fill="#020304" opacity="0.72"/>
+  <path d="M776 516 V278 C776 228 812 190 862 190 H970 C1020 190 1056 228 1056 278 V516" fill="#ffffff" opacity="0.1"/>
+  <path d="M820 516 V326 C820 296 842 274 872 274 H960 C990 274 1012 296 1012 326 V516" fill="#ffffff" opacity="0.12"/>
+  <circle cx="360" cy="264" r="146" fill="#ffffff" opacity="0.08"/>
+</svg>

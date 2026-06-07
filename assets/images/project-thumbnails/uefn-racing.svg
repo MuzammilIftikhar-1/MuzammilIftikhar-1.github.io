@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">UEFN Racing thumbnail</title>
+  <desc id="desc">Minimal racing track curve with cinematic mist and amber light.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fbfdff"/>
+      <stop offset="0.5" stop-color="#ccd6e6"/>
+      <stop offset="1" stop-color="#4f6fdc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M0 530 C210 442 390 430 570 482 C780 544 906 550 1280 430 L1280 720 L0 720 Z" fill="#101b34" opacity="0.14"/>
+  <path d="M122 660 C388 454 664 430 1064 236" fill="none" stroke="#ffffff" stroke-width="96" stroke-linecap="round" opacity="0.36"/>
+  <path d="M122 660 C388 454 664 430 1064 236" fill="none" stroke="#101b34" stroke-width="42" stroke-linecap="round" opacity="0.22"/>
+  <path d="M148 636 C414 444 670 420 1032 250" fill="none" stroke="#f2a22c" stroke-width="6" stroke-dasharray="38 30" opacity="0.86"/>
+</svg>
