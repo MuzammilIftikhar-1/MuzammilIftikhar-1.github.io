@@ -595,7 +595,16 @@ function resetVideoState() {
   durationText.textContent = "0:00";
   playIcon.textContent = "▶";
   muteIcon.textContent = projectVideo.muted ? "◕" : "●";
-  videoFrame.classList.remove("has-fallback", "has-poster", "has-slideshow");
+  videoFrame.classList.remove("has-fallback", "has-poster", "has-slideshow", "has-video");
+}
+
+function showActiveVideoFrame() {
+  if (!projectVideo.videoWidth || !projectVideo.videoHeight || videoFrame.classList.contains("has-slideshow")) {
+    return;
+  }
+
+  videoFrame.classList.add("has-video");
+  videoFrame.classList.remove("has-poster", "has-fallback");
 }
 
 function renderProject(project) {
@@ -989,6 +998,8 @@ projectVideo.addEventListener("pause", () => {
 
 projectVideo.addEventListener("timeupdate", updateVideoProgress);
 projectVideo.addEventListener("loadedmetadata", updateVideoProgress);
+projectVideo.addEventListener("loadeddata", showActiveVideoFrame);
+projectVideo.addEventListener("canplay", showActiveVideoFrame);
 projectVideo.addEventListener("error", () => {
   if (state.project && !videoFrame.classList.contains("has-slideshow")) {
     startImageSlideshow(getProjectImages(state.project), state.project.title);
