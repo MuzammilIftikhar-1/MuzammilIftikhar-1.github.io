@@ -152,6 +152,22 @@ window.siteData = {
       imagePaths: ["assets/images/project-thumbnails/vr-simulator.svg"],
       links: [],
     },
+
+      {
+      title: "VR Drone Destruction Prototype",
+      category: "Unreal Engine Projects",
+      tags: "Unreal Engine 5.4 | Blueprints | VR Prototype | Drone Controller | Collision System | Destruction Mechanic | Keyboard Input",
+      description:
+        "A Kamikaze Drone VR prototype built in Unreal Engine 5.4 using Blueprints. The drone can be controlled through a VR headset and motion controllers or with keyboard keybinds. The core mechanic focuses on drone movement, collision detection, and self-destruction on impact, creating a functional prototype for impact-based drone gameplay.",
+      videoPath: "assets/videos/Drone VR Game.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/vr-simulator.svg",
+      imagePaths: ["assets/images/project-thumbnails/vr-simulator.svg"],
+      links: [],
+    },
+
+
+
     {
       title: "Jump Spirit",
       category: "Unreal Engine Projects",
