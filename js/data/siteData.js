@@ -248,6 +248,20 @@ window.siteData = {
       links: [],
     },
 
+
+    {
+      title: "4v4 Box Fight Game",
+      category: "UEFN Projects",
+      tags: "UEFN | Fortnite Creative | Box Fight | Multiplayer | Level Design | Item Spawners | Timers | Barrier System",
+      description:
+        "A competitive 4v4 box fight game built in UEFN, featuring team-based gameplay, arena barriers, item spawners, hub controllers, start timers, end timers, and structured match flow. The project focused on multiplayer level design, device-based logic, player flow, and creating a complete competitive Fortnite Creative experience.",
+      videoPath: "assets/videos/UEFN 4V4.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/uefn-1v1.svg",
+      imagePaths: ["assets/images/project-thumbnails/uefn-1v1.svg"],
+      links: [],
+    },
+
      {
       title: "Fall Guys Style Obstacle Game",
       category: "UEFN Projects",
@@ -261,6 +275,33 @@ window.siteData = {
       links: [],
     },
 
+
+     {
+      title: "Local Multiplayer Vehicle Dodging Game",
+      category: "Unity Projects",
+      tags: "Unity | C# | Local Multiplayer | Split Screen | Vehicle Game | Obstacle Spawning | Input System",
+      description:
+        "A 2-player local multiplayer vehicle dodging game built in Unity using C#. The project features player-controlled cars, dynamic obstacle spawning, custom input axes, and split-screen cameras. It focused on learning Unity’s Input Manager, camera viewport setup, player movement, and local multiplayer gameplay logic.",
+      videoPath: "assets/videos/Unity1.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/uefn-racing.svg",
+      imagePaths: ["assets/images/project-thumbnails/uefn-racing.svg"],
+      links: [],
+    },
+
+
+    {
+      title: "Unity Essentials Game Project",
+      category: "Unity Projects",
+      tags: "Unity | C# | Unity Essentials | Rigidbody | Colliders | 2D Triggers | Game Fundamentals",
+      description:
+        "A beginner-friendly Unity project completed through the Unity Essentials Pathway, focused on Rigidbody physics, Colliders, 2D Triggers, basic C# scripting, object interactions, score logic, and scene organization. The project helped build a strong foundation in Unity’s core systems for 2D and 3D game development.",
+      videoPath: "assets/videos/Unity1.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/uefn-racing.svg",
+      imagePaths: ["assets/images/project-thumbnails/uefn-racing.svg"],
+      links: [],
+    },
 
     {
       title: "Cinematic Environment",
