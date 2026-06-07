@@ -358,6 +358,54 @@ button {
   margin-top: 14px;
 }
 
+.home-actions:not(.is-hidden) .bracket-button {
+  animation: homeButtonNudge 2.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.home-actions:not(.is-hidden) .bracket-button:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.home-actions:not(.is-hidden) .bracket-button:nth-child(2) {
+  animation-delay: 0.34s;
+}
+
+.home-actions:not(.is-hidden) .bracket-button:nth-child(3) {
+  animation-delay: 0.68s;
+}
+
+.home-actions:not(.is-hidden) .bracket-button:hover,
+.home-actions:not(.is-hidden) .bracket-button:focus-visible {
+  animation-play-state: paused;
+}
+
+@keyframes homeButtonNudge {
+  0%,
+  64%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  72% {
+    transform: translate(-2px, -1px);
+  }
+
+  80% {
+    transform: translate(2px, 1px);
+  }
+
+  88% {
+    transform: translate(0, -2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-actions:not(.is-hidden) .bracket-button {
+    animation: none;
+  }
+}
+
 .content-grid {
   width: min(1120px, 100%);
   margin: 0 auto;
