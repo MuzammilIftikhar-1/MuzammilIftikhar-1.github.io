@@ -136,6 +136,10 @@ function formatStatValue(value, suffix = "") {
   return `${value}${suffix}`;
 }
 
+function isDirectVideoFile(path) {
+  return /\.(mp4|webm|ogg)(\?.*)?$/i.test(path || "");
+}
+
 function createWorkExperienceCard(work) {
   const card = document.createElement("article");
   card.className = "work-card";
@@ -166,7 +170,7 @@ function createWorkExperienceCard(work) {
     card.append(description);
   }
 
-  if (work.videoPath) {
+  if (work.videoPath && isDirectVideoFile(work.videoPath)) {
     const video = document.createElement("video");
     video.className = "work-card__video";
     video.src = work.videoPath;
@@ -174,6 +178,14 @@ function createWorkExperienceCard(work) {
     video.playsInline = true;
     video.preload = "metadata";
     card.append(video);
+  } else if (work.videoPath) {
+    const videoLink = document.createElement("a");
+    videoLink.className = "work-card__link";
+    videoLink.href = work.videoPath;
+    videoLink.target = "_blank";
+    videoLink.rel = "noreferrer";
+    videoLink.textContent = "Watch Video";
+    card.append(videoLink);
   }
 
   if (work.link) {
