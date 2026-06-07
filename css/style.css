@@ -2907,7 +2907,7 @@ button {
 }
 
 .about-detail__list li::marker {
-  color: #dfe7f5;
+  color: var(--accent);
 }
 
 .work-list {
@@ -2918,10 +2918,22 @@ button {
 
 .work-card {
   padding: 14px 16px;
-  border-left: 1px solid rgba(210, 218, 232, 0.28);
+  border: 1px solid rgba(210, 218, 232, 0.12);
+  border-left-color: rgba(210, 218, 232, 0.28);
   background:
     linear-gradient(90deg, rgba(72, 80, 96, 0.18), transparent 78%),
     rgba(255, 255, 255, 0.025);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.work-card:hover,
+.work-card:focus-within {
+  border-color: var(--accent-line);
+  background:
+    linear-gradient(90deg, var(--accent-soft), transparent 78%),
+    rgba(255, 255, 255, 0.035);
+  box-shadow: 0 0 0 1px var(--accent-line), 0 14px 36px rgba(0, 0, 0, 0.22);
+  transform: translateY(-1px);
 }
 
 .work-card__heading {
@@ -2971,12 +2983,32 @@ button {
   background: #000;
 }
 
+.work-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
 .work-card__link {
   display: inline-flex;
-  margin-top: 12px;
+  min-height: 32px;
+  align-items: center;
+  padding: 0 10px;
   color: #dfe7f5;
+  border: 1px solid rgba(223, 231, 245, 0.22);
   text-decoration: none;
   font-weight: 800;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.work-card__link:hover,
+.work-card__link:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  outline: 0;
+  transform: translateY(-1px);
 }
 
 .tools-grid {

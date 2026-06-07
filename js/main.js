@@ -170,6 +170,9 @@ function createWorkExperienceCard(work) {
     card.append(description);
   }
 
+  const actions = document.createElement("div");
+  actions.className = "work-card__actions";
+
   if (work.videoPath && isDirectVideoFile(work.videoPath)) {
     const video = document.createElement("video");
     video.className = "work-card__video";
@@ -184,8 +187,8 @@ function createWorkExperienceCard(work) {
     videoLink.href = work.videoPath;
     videoLink.target = "_blank";
     videoLink.rel = "noreferrer";
-    videoLink.textContent = "Watch Video";
-    card.append(videoLink);
+    videoLink.textContent = "Gameplay Preview";
+    actions.append(videoLink);
   }
 
   if (work.link) {
@@ -194,8 +197,12 @@ function createWorkExperienceCard(work) {
     link.href = work.link;
     link.target = "_blank";
     link.rel = "noreferrer";
-    link.textContent = "View Project";
-    card.append(link);
+    link.textContent = "Store Page";
+    actions.append(link);
+  }
+
+  if (actions.children.length) {
+    card.append(actions);
   }
 
   return card;
