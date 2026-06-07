@@ -16,8 +16,13 @@ window.siteData = {
   // Main copy shown on the About page.
   about: {
     heading: "Muzammil Iftikhar",
-    text:
-      "I'm an Unreal Engine developer and designer passionate about creating immersive gameplay and interactive experiences. I specialize in gameplay systems, Blueprint, C++, VR, and UEFN - blending technical depth with creative design to build meaningful worlds players remember.",
+    text: [
+      "I am a Game Developer and Designer with a strong focus on Unreal Engine. I enjoy building gameplay systems that feel responsive, structured, and enjoyable for players. ",
+      "My work is mainly focused on gameplay mechanics, AI behavior, multiplayer systems, VR interactions, UI systems, and player-focused features. I like taking an idea from a rough concept and turning it into something playable, polished, and functional inside the engine. ",
+      "My work is mainly focused on gameplay mechanics, AI behavior, multiplayer systems, VR interactions, UI systems, and player-focused features. I like taking an idea from a rough concept and turning it into something playable, polished, and functional inside the engine.",
+      "As a developer, I care about both the technical side and the player experience. A mechanic should not only work; it should feel right, respond clearly, and support the overall game experience.",
+      "I am continuously improving my skills as a gameplay and systems developer, with a long-term goal of working on immersive, engaging, and technically strong games.",
+    ].join(" "),
     // About portrait controls.
     // Change these values when your real transparent image needs different placement.
     portrait: {

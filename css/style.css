@@ -3346,6 +3346,35 @@ button {
 }
 
 @media (max-width: 700px) {
+  .site-shell[data-view="about"]::before,
+  .site-shell[data-view="portfolio"]::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 68;
+    height: 92px;
+    pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.62) 56%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .site-shell[data-view="about"] .back-link,
+  .site-shell[data-view="about"] .page-bottom-actions .bracket-button,
+  .site-shell[data-view="portfolio"] .back-link,
+  .site-shell[data-view="portfolio"] .top-contact-link,
+  .site-shell[data-view="portfolio"] .category-dropdown .dropdown__trigger {
+    color: #f8fbff;
+    opacity: 1;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.72);
+  }
+
+  .site-shell[data-view="about"] .top-bar,
+  .site-shell[data-view="portfolio"] .top-bar {
+    z-index: 72;
+  }
+
   .site-shell[data-view="about"] .page-bottom-actions {
     position: fixed;
     top: 15px;
@@ -3364,17 +3393,8 @@ button {
 
   .site-shell[data-view="about"] .page-bottom-actions .bracket-button {
     width: auto;
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     white-space: nowrap;
-  }
-
-  .site-shell[data-view="about"] .page-bottom-actions .bracket-button:nth-child(2) {
-    font-size: 0;
-  }
-
-  .site-shell[data-view="about"] .page-bottom-actions .bracket-button:nth-child(2)::after {
-    content: "[ Touch ]";
-    font-size: 0.72rem;
   }
 
   .site-shell[data-view="about"] .back-link {
@@ -3417,19 +3437,29 @@ button {
   }
 
   .site-shell[data-view="portfolio"] .portfolio-heading {
-    top: 64px;
-    left: 16px;
-    right: 16px;
+    position: fixed;
+    top: 52px;
+    left: 0;
+    right: 0;
+    z-index: 71;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0;
+    pointer-events: none;
   }
 
   .site-shell[data-view="portfolio"] .portfolio-tools {
-    justify-content: flex-end;
+    justify-content: center;
+    width: auto;
+    pointer-events: auto;
   }
 
   .site-shell[data-view="portfolio"] .category-dropdown .dropdown__trigger {
-    max-width: min(240px, calc(100vw - 32px));
+    max-width: min(260px, calc(100vw - 32px));
     overflow: hidden;
     font-size: 0.76rem;
+    background: rgba(0, 0, 0, 0.42);
   }
 
   .site-shell[data-view="portfolio"] .category-dropdown .dropdown__trigger span:first-child {
