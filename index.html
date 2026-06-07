@@ -9,7 +9,7 @@
     >
     <title>Muzammil Iftikhar | Game Developer & Designer</title>
     <link rel="icon" href="data:,">
-    <link rel="stylesheet" href="css/style.css?v=20260608-video-visibility">
+    <link rel="stylesheet" href="css/style.css?v=20260608-video-loader">
   </head>
   <body>
     <div class="loading-screen" id="loadingScreen" aria-label="Loading portfolio">
@@ -115,6 +115,10 @@
                 preload="metadata"
               ></video>
               <img id="projectPoster" class="project-poster" alt="">
+              <div class="video-loader" id="videoLoader" aria-live="polite">
+                <span class="video-loader__ring" aria-hidden="true"></span>
+                <span>Loading video</span>
+              </div>
               <div class="video-fallback" id="videoFallback" aria-hidden="true"></div>
               <div class="project-overlay">
                 <div class="project-meta">
@@ -203,7 +207,7 @@
       <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
     </div>
 
-    <script src="js/data/siteData.js?v=20260608-video-visibility"></script>
-    <script src="js/main.js?v=20260608-video-visibility"></script>
+    <script src="js/data/siteData.js?v=20260608-video-loader"></script>
+    <script src="js/main.js?v=20260608-video-loader"></script>
   </body>
 </html>

@@ -558,6 +558,7 @@ function startImageSlideshow(images, projectName) {
   stopImageSlideshow();
   slideshowImages = images;
   slideshowPaused = false;
+  videoFrame.classList.remove("is-loading-video");
   videoFrame.classList.add("has-slideshow", "has-poster");
   playIcon.textContent = "❚❚";
   durationText.textContent = images.length > 1 ? "Images" : "Image";
@@ -595,7 +596,7 @@ function resetVideoState() {
   durationText.textContent = "0:00";
   playIcon.textContent = "▶";
   muteIcon.textContent = projectVideo.muted ? "◕" : "●";
-  videoFrame.classList.remove("has-fallback", "has-poster", "has-slideshow", "has-video");
+  videoFrame.classList.remove("has-fallback", "has-poster", "has-slideshow", "has-video", "is-loading-video");
 }
 
 function showActiveVideoFrame() {
@@ -604,7 +605,7 @@ function showActiveVideoFrame() {
   }
 
   videoFrame.classList.add("has-video");
-  videoFrame.classList.remove("has-poster", "has-fallback");
+  videoFrame.classList.remove("has-poster", "has-fallback", "is-loading-video");
 }
 
 function renderProject(project) {
@@ -637,6 +638,7 @@ function renderProject(project) {
 
   projectVideo.src = activeProject.videoPath;
   projectVideo.muted = true;
+  videoFrame.classList.add("is-loading-video");
   projectVideo.load();
   projectVideo.play().catch(() => {
     startImageSlideshow(projectImages, activeProject.title);
@@ -1000,7 +1002,14 @@ projectVideo.addEventListener("timeupdate", updateVideoProgress);
 projectVideo.addEventListener("loadedmetadata", updateVideoProgress);
 projectVideo.addEventListener("loadeddata", showActiveVideoFrame);
 projectVideo.addEventListener("canplay", showActiveVideoFrame);
+projectVideo.addEventListener("waiting", () => {
+  if (!videoFrame.classList.contains("has-slideshow")) {
+    videoFrame.classList.add("is-loading-video");
+  }
+});
+projectVideo.addEventListener("playing", showActiveVideoFrame);
 projectVideo.addEventListener("error", () => {
+  videoFrame.classList.remove("is-loading-video");
   if (state.project && !videoFrame.classList.contains("has-slideshow")) {
     startImageSlideshow(getProjectImages(state.project), state.project.title);
   } else {

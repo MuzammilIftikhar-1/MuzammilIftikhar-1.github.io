@@ -593,6 +593,46 @@ button {
   display: block;
 }
 
+.video-loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 5;
+  display: none;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.62);
+  border: 1px solid color-mix(in srgb, var(--brand-color) 48%, rgba(255, 255, 255, 0.16));
+  border-radius: 999px;
+  box-shadow: 0 18px 46px rgba(0, 0, 0, 0.34);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.video-frame.is-loading-video .video-loader {
+  display: flex;
+}
+
+.video-loader__ring {
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  border-top-color: var(--brand-color);
+  border-radius: 50%;
+  animation: video-loader-spin 780ms linear infinite;
+}
+
+@keyframes video-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .video-fallback {
   position: absolute;
   inset: 0;

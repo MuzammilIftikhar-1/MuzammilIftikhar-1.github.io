@@ -183,7 +183,7 @@ window.siteData = {
       tags: "Unreal Engine | Blueprints | Projectile Combat | Damage System | Enemy Spawning | Dynamic Crosshair | MetaSounds",
       description:
         "A third-person bot fight prototype built in Unreal Engine 5.4, featuring projectile combat, flying enemies, trigger-based enemy spawning, dynamic crosshair feedback, damage logic, impact emitters, and MetaSound experimentation. The project focused on improving gameplay fundamentals, combat pacing, visual feedback, and cleaner Blueprint implementation.",
-      videoPath: "assets/videos/Drone.mp4",
+      videoPath: "assets/videos/Drone .mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/parkour.svg",
       imagePaths: ["assets/images/project-thumbnails/parkour.svg"],
