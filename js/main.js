@@ -630,7 +630,7 @@ function renderProject(project) {
   projectVideo.muted = true;
   projectVideo.load();
   projectVideo.play().catch(() => {
-    videoFrame.classList.add("has-fallback");
+    startImageSlideshow(projectImages, activeProject.title);
   });
 }
 
@@ -990,7 +990,11 @@ projectVideo.addEventListener("pause", () => {
 projectVideo.addEventListener("timeupdate", updateVideoProgress);
 projectVideo.addEventListener("loadedmetadata", updateVideoProgress);
 projectVideo.addEventListener("error", () => {
-  videoFrame.classList.add("has-fallback");
+  if (state.project && !videoFrame.classList.contains("has-slideshow")) {
+    startImageSlideshow(getProjectImages(state.project), state.project.title);
+  } else {
+    videoFrame.classList.add("has-fallback");
+  }
 });
 
 window.addEventListener("hashchange", () => {
