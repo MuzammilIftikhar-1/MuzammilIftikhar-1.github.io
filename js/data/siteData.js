@@ -280,7 +280,7 @@ window.siteData = {
       tags: "Unreal Engine Fortnite Editor | Lighting | Environment Art",
       description:
         "A stylized riverside forest environment built in Unreal Engine, featuring a turquoise river, rocky cliffs, dense foliage, trees, a wooden cabin, and waterfall elements. The scene focuses on natural composition, exploration, atmosphere, and a clean playable layout.",
-      videoPath: "assets/videos/Unreal UEFN Enivornment.mp4",
+      videoPath: "assets/videos/UEFN Enivornment.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/environment-study.svg",
       imagePaths: ["assets/images/project-thumbnails/environment-study.svg"],
