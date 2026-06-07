@@ -48,20 +48,33 @@ window.siteData = {
         text:
           "Almost four years working as an Unreal Engine developer across prototypes, VR experiences, UEFN gameplay loops, interaction systems, and polished portfolio-ready project builds.",
         bullets: [
-          "Gameplay systems, prototypes, and interaction design for Unreal Engine projects.",
-          "VR-focused development with attention to player comfort, responsiveness, and believable interactions.",
-          "UEFN and multiplayer experience design for competitive and social gameplay loops.",
+          "I design and implement gameplay mechanics, ability systems, interaction logic, combat features, and reusable gameplay frameworks.",
+          "I create enemy behavior using Behavior Trees, Blackboards, movement logic, attack selection, and responsive combat systems.",
+          "I work on replicated gameplay systems, weapon behavior, loadouts, player data, and server-client consistency.",
+          "I build VR interaction systems, weapon handling, attachment logic, and immersive gameplay features with performance in mind.",
+          "I focus on clean, modular, and scalable Blueprint systems that are easier to debug, extend, and reuse.",
         ],
         work: [
           {
             role: "Unreal Engine Developer",
-            company: "Portfolio / Client Projects",
-            period: "2021 - Present",
-            project: "VR simulator, multiplayer prototypes, UEFN gameplay systems",
+            company: "Acedia",
+            period: "Dec 2024 - Present",
+            project: "Bloodsmith",
             description:
-              "Built gameplay features, VR interactions, prototype systems, and cinematic presentation for Unreal Engine portfolio and client-style projects.",
+              "At Acedia, I work on gameplay systems using Unreal Engine 5, focusing on Blueprint architecture, ability systems, UI selection mechanics, player interaction logic, and performance-aware implementation. I design modular systems that can be reused and extended across different gameplay features.",
+            videoPath: "https://www.youtube.com/watch?v=bxva1wKf99s",
+            link: "https://store.steampowered.com/app/3113350/Bloodsmith/",
+          },
+          {
+            role: "Junior Unreal Engine Developer",
+            company: "Intelgency IT Solution",
+            period: "Feb 2025 - Mar 2026",
+            project: "VR Simulator, Multiplayer",
+            description:
+              "At Intelgency IT Solution, I worked on advanced Unreal Engine systems with a focus on AI, multiplayer replication, VR weapons, and scalable loadout systems. This role helped me understand the importance of clean replication logic, reliable gameplay state, and stable interaction systems in multiplayer VR projects.",
             videoPath: "",
             link: "",
+
           },
         ],
         open: true,
