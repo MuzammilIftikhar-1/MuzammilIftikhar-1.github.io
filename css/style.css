@@ -670,10 +670,14 @@ button {
 
 .project-meta h3 {
   margin: 0;
+  display: -webkit-box;
+  overflow: hidden;
   font-family: var(--serif);
   font-weight: 400;
   font-size: 2.4rem;
   line-height: 1.05;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .project-tags {
