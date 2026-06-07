@@ -153,13 +153,13 @@ window.siteData = {
       links: [],
     },
     {
-      title: "Multiplayer Parkour Game",
+      title: "Jump Spirit",
       category: "Unreal Engine Projects",
       tags: "Unreal Engine | Blueprint | Multiplayer | Parkour",
       description:
         "A multiplayer parkour project focused on traversal, movement flow, responsive gameplay, and player interaction.",
-      videoPath: "assets/videos/parkour.mp4",
-      videoAvailable: false,
+      videoPath: "assets/videos/parkour (2).mp4",
+      videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/parkour.svg",
       imagePaths: ["assets/images/project-thumbnails/parkour.svg"],
       links: [],
@@ -183,7 +183,7 @@ window.siteData = {
       description:
         "A racing experience built in UEFN with custom tracks, checkpoints, competitive flow, and multiplayer gameplay structure.",
       videoPath: "assets/videos/uefn-racing.mp4",
-      videoAvailable: false,
+      videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/uefn-racing.svg",
       imagePaths: ["assets/images/project-thumbnails/uefn-racing.svg"],
       links: [],
@@ -194,8 +194,8 @@ window.siteData = {
       tags: "UEFN | Multiplayer | Abilities | In Progress",
       description:
         "A 1v1 ability-based arena project where players use different abilities in a competitive multiplayer environment.",
-      videoPath: "assets/videos/uefn-1v1.mp4",
-      videoAvailable: false,
+      videoPath: "assets/videos/uefn1-1v.mp4",
+      videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/uefn-1v1.svg",
       imagePaths: ["assets/images/project-thumbnails/uefn-1v1.svg"],
       links: [],
