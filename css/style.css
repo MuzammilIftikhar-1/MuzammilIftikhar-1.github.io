@@ -358,6 +358,12 @@ button {
   margin-top: 14px;
 }
 
+.home-actions .bracket-button {
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 4px 8px;
+}
+
 .home-actions:not(.is-hidden) .bracket-button {
   animation: homeButtonNudge 2.8s ease-in-out infinite;
   will-change: transform;
@@ -384,18 +390,22 @@ button {
   0%,
   64%,
   100% {
+    color: var(--text);
     transform: translate(0, 0);
   }
 
   72% {
+    color: var(--accent);
     transform: translate(-2px, -1px);
   }
 
   80% {
+    color: var(--accent);
     transform: translate(2px, 1px);
   }
 
   88% {
+    color: var(--accent);
     transform: translate(0, -2px);
   }
 }
