@@ -176,6 +176,35 @@ window.siteData = {
       imagePaths: ["assets/images/project-thumbnails/dungeon-scape.svg"],
       links: [],
     },
+
+     {
+      title: "Bot Fight Game",
+      category: "Unreal Engine Projects",
+      tags: "Unreal Engine | Blueprints | Projectile Combat | Damage System | Enemy Spawning | Dynamic Crosshair | MetaSounds",
+      description:
+        "A third-person bot fight prototype built in Unreal Engine 5.4, featuring projectile combat, flying enemies, trigger-based enemy spawning, dynamic crosshair feedback, damage logic, impact emitters, and MetaSound experimentation. The project focused on improving gameplay fundamentals, combat pacing, visual feedback, and cleaner Blueprint implementation.",
+      videoPath: "assets/videos/Drone.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/parkour.svg",
+      imagePaths: ["assets/images/project-thumbnails/parkour.svg"],
+      links: [],
+    },
+
+
+       {
+      title: "Beam Blaster",
+      category: "Unreal Engine Projects",
+      tags: "Unreal Engine | Blueprints | Arcade Game | Survival Mechanics | Collectibles | Score System | Gameplay Prototype",
+      description:
+        "An arcade-style Unreal Engine prototype where the player navigates through the sky, avoids incoming red beams, and collects orbs to increase the score. The project focused on Blueprint scripting, survival mechanics, collectibles, scoring logic, and improving gameplay fundamentals through iteration.",
+      videoPath: "assets/videos/Beam Blaster.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/parkour.svg",
+      imagePaths: ["assets/images/project-thumbnails/parkour.svg"],
+      links: [],
+    },
+
+
     {
       title: "UEFN Racing",
       category: "UEFN Projects",
@@ -188,6 +217,8 @@ window.siteData = {
       imagePaths: ["assets/images/project-thumbnails/uefn-racing.svg"],
       links: [],
     },
+    
+
     {
       title: "UEFN 1v1 Ability Arena",
       category: "UEFN Projects",
@@ -200,6 +231,21 @@ window.siteData = {
       imagePaths: ["assets/images/project-thumbnails/uefn-1v1.svg"],
       links: [],
     },
+
+     {
+      title: "Fall Guys Style Obstacle Game",
+      category: "UEFN Projects",
+      tags: "UEFN | Fortnite Creative | Level Design | Obstacle Course | Platforming | Player Flow | Gameplay Prototype",
+      description:
+        "A Fall Guys-inspired obstacle course game built in UEFN, featuring timing-based challenges, platforming obstacles, player navigation, and competitive race-style gameplay. The project focused on level design, player flow, obstacle placement, pacing, and creating a fun playable experience.",
+      videoPath: "assets/videos/fallguys.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/uefn-racing.svg",
+      imagePaths: ["assets/images/project-thumbnails/uefn-racing.svg"],
+      links: [],
+    },
+
+
     {
       title: "Cinematic Environment",
       category: "Environments",
@@ -212,6 +258,19 @@ window.siteData = {
       imagePaths: ["assets/images/project-thumbnails/environment-study.svg"],
       links: [],
     },
+     {
+      title: "Forest River Valley",
+      category: "Environments",
+      tags: "Unreal Engine Fortnite Editor | Lighting | Environment Art",
+      description:
+        "A stylized riverside forest environment built in Unreal Engine, featuring a turquoise river, rocky cliffs, dense foliage, trees, a wooden cabin, and waterfall elements. The scene focuses on natural composition, exploration, atmosphere, and a clean playable layout.",
+      videoPath: "assets/videos/Unreal UEFN Enivornment.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/environment-study.svg",
+      imagePaths: ["assets/images/project-thumbnails/environment-study.svg"],
+      links: [],
+    },
+
     {
       title: "Snowy Mountain Outpost",
       category: "Environments",
