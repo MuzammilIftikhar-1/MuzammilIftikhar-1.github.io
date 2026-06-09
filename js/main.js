@@ -1,40 +1,74 @@
+/* ============================================================
+   MUZAMMIL IFTIKHAR — PORTFOLIO · main.js
+   Redesigned minimalistic SPA engine
+   ============================================================ */
+
 const siteData = window.siteData;
 
-const shell = document.querySelector("#siteShell");
-const backgroundLayer = document.querySelector("#backgroundLayer");
-const pages = [...document.querySelectorAll("[data-page]")];
-const backButton = document.querySelector("#backButton");
-const menuDropdown = document.querySelector("#menuDropdown");
-const homeTitle = document.querySelector("#homeTitle");
-const homeSubtitle = document.querySelector("#homeSubtitle");
-const homeActions = document.querySelector(".home-actions");
-const categoryDropdown = document.querySelector("#categoryDropdown");
-const categoryList = document.querySelector("#categoryList");
-const categoryLabel = document.querySelector("#categoryLabel");
-const portfolioTitle = document.querySelector("#portfolioTitle");
-const projectVideo = document.querySelector("#projectVideo");
-const projectPoster = document.querySelector("#projectPoster");
-const videoFrame = document.querySelector("#videoFrame");
-const projectTitle = document.querySelector("#projectTitle");
-const projectTags = document.querySelector("#projectTags");
-const projectDescription = document.querySelector("#projectDescription");
-const projectLinks = document.querySelector("#projectLinks");
-const playButton = document.querySelector("#playButton");
-const playIcon = document.querySelector("#playIcon");
-const muteButton = document.querySelector("#muteButton");
-const muteIcon = document.querySelector("#muteIcon");
-const prevProjectButton = document.querySelector("#prevProjectButton");
-const nextProjectButton = document.querySelector("#nextProjectButton");
-const progressTrack = document.querySelector(".progress-track");
-const progressFill = document.querySelector("#progressFill");
-const durationText = document.querySelector("#durationText");
-const soundToggle = document.querySelector("#soundToggle");
-const soundState = document.querySelector("#soundState");
-const contactForm = document.querySelector("#contactForm");
-const cursorRing = document.querySelector("#cursorRing");
-const loadingScreen = document.querySelector("#loadingScreen");
-const loaderProgress = document.querySelector("#loaderProgress");
+/* ── DOM References ────────────────────────────────────────── */
+const $ = (s, p = document) => p.querySelector(s);
+const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 
+const nav = $("#nav");
+const navLogo = $("#navLogo");
+const navLinks = $$(".nav__link");
+const mainContent = $("#mainContent");
+const pages = $$("[data-page]");
+const cursorGlow = $("#cursorGlow");
+const loader = $("#loader");
+const loaderFill = $("#loaderFill");
+const loaderText = $("#loaderText");
+
+// Hero
+const homeTitle = $("#homeTitle");
+const homeSubtitle = $("#homeSubtitle");
+const heroIntro = $("#heroIntro");
+const heroActions = $("#heroActions");
+const heroStats = $("#heroStats");
+const heroBg = $("#heroBg");
+const heroProfileImage = $("#heroProfileImage");
+
+// About
+const profileImage = $("#profileImage");
+const aboutText = $("#aboutText");
+const aboutStats = $("#aboutStats");
+const aboutSections = $("#aboutSections");
+
+// Portfolio
+const portfolioTitle = $("#portfolioTitle");
+const portfolioFilters = $("#portfolioFilters");
+const projectVideo = $("#projectVideo");
+const projectPoster = $("#projectPoster");
+const videoFrame = $("#videoFrame") || $(".project-viewer__media");
+const projectTitle = $("#projectTitle");
+const projectTags = $("#projectTags");
+const projectDescription = $("#projectDescription");
+const projectLinks = $("#projectLinks");
+const playButton = $("#playButton");
+const playIcon = $("#playIcon");
+const muteButton = $("#muteButton");
+const muteIcon = $("#muteIcon");
+const prevProjectButton = $("#prevProjectButton");
+const nextProjectButton = $("#nextProjectButton");
+const progressTrack = $(".progress-track");
+const progressFill = $("#progressFill");
+const durationText = $("#durationText");
+
+// Contact
+const contactGrid = $("#contactGrid");
+const homeContactGrid = $("#homeContactGrid");
+
+// Featured projects
+const featuredList = $("#featuredList");
+
+// Controls
+const soundToggle = $("#soundToggle");
+const soundIcon = $("#soundIcon");
+
+// Footer
+const footerLinks = $("#footerLinks");
+
+/* ── State ─────────────────────────────────────────────────── */
 const storageKeys = {
   theme: "muzammil-portfolio-theme",
   sound: "muzammil-portfolio-click-sound",
@@ -60,336 +94,149 @@ const state = {
     localStorage.getItem(storageKeys.theme) ||
     siteData.theme.defaultTheme ||
     "blue",
-  soundEnabled: storedSoundPreference === null ? false : storedSoundPreference === "true",
+  soundEnabled:
+    storedSoundPreference === null ? false : storedSoundPreference === "true",
   category: siteData.defaultCategory || siteData.categories[0],
   project: null,
 };
 
+
+/* ── Helpers ───────────────────────────────────────────────── */
 function setText(selector, value) {
-  const element = document.querySelector(selector);
-  if (element) {
-    element.textContent = value;
-  }
+  const el = $(selector);
+  if (el) el.textContent = value;
 }
 
-function createToolChip(tool, className = "tool-chip") {
-  const item = document.createElement("span");
-  item.className = className;
-
-  if (className === "tool-chip") {
-    const icon = document.createElement("span");
-    icon.className = "tool-chip__icon";
-
-    if (tool.iconPath) {
-      const image = document.createElement("img");
-      image.src = tool.iconPath;
-      image.alt = "";
-      image.loading = "lazy";
-      icon.append(image);
-    } else {
-      icon.textContent = tool.icon || tool.label?.slice(0, 2) || "";
-    }
-
-    const label = document.createElement("span");
-    label.className = "tool-chip__label";
-    label.textContent = tool.label || tool;
-
-    if (tool.key) {
-      item.dataset.tool = tool.key;
-    }
-
-    item.append(icon, label);
-    return item;
-  }
-
-  if (tool.iconPath) {
-    const image = document.createElement("img");
-    image.src = tool.iconPath;
-    image.alt = "";
-    image.loading = "lazy";
-    item.append(image);
-  } else {
-    item.textContent = tool.icon || tool.label?.slice(0, 2) || "";
-  }
-
-  item.title = tool.label;
-  return item;
+function hexToRgb(hex) {
+  const n = hex.replace("#", "").trim();
+  if (n.length !== 6) return null;
+  const v = Number.parseInt(n, 16);
+  return { r: (v >> 16) & 255, g: (v >> 8) & 255, b: v & 255 };
 }
 
-function createToolkitMarquee() {
-  const marquee = document.createElement("div");
-  marquee.className = "tool-marquee";
-  marquee.setAttribute("aria-label", "Moving tool logos");
-
-  const track = document.createElement("div");
-  track.className = "tool-marquee__track";
-  const marqueeTools = [...(siteData.about.toolkit || []), ...(siteData.about.toolkit || [])];
-  marqueeTools.forEach((tool) => {
-    track.append(createToolChip(tool, "marquee-tool"));
-  });
-
-  marquee.append(track);
-  return marquee;
+function formatTime(sec) {
+  if (!Number.isFinite(sec) || sec < 0) return "0:00";
+  return `${Math.floor(sec / 60)}:${Math.floor(sec % 60).toString().padStart(2, "0")}`;
 }
 
-function formatStatValue(value, suffix = "") {
-  return `${value}${suffix}`;
+function formatStatValue(v, s = "") {
+  return `${v}${s}`;
 }
 
 function isDirectVideoFile(path) {
   return /\.(mp4|webm|ogg)(\?.*)?$/i.test(path || "");
 }
 
-function createWorkExperienceCard(work) {
-  const card = document.createElement("article");
-  card.className = "work-card";
-
-  const heading = document.createElement("div");
-  heading.className = "work-card__heading";
-
-  const title = document.createElement("h4");
-  title.textContent = work.role || work.project || "Work Experience";
-
-  const meta = document.createElement("p");
-  meta.textContent = [work.company, work.period].filter(Boolean).join(" / ");
-
-  heading.append(title, meta);
-  card.append(heading);
-
-  if (work.project) {
-    const project = document.createElement("p");
-    project.className = "work-card__project";
-    project.textContent = work.project;
-    card.append(project);
-  }
-
-  if (work.description) {
-    const description = document.createElement("p");
-    description.className = "work-card__description";
-    description.textContent = work.description;
-    card.append(description);
-  }
-
-  const actions = document.createElement("div");
-  actions.className = "work-card__actions";
-
-  if (work.videoPath && isDirectVideoFile(work.videoPath)) {
-    const video = document.createElement("video");
-    video.className = "work-card__video";
-    video.src = work.videoPath;
-    video.controls = true;
-    video.playsInline = true;
-    video.preload = "metadata";
-    card.append(video);
-  } else if (work.videoPath) {
-    const videoLink = document.createElement("a");
-    videoLink.className = "work-card__link";
-    videoLink.href = work.videoPath;
-    videoLink.target = "_blank";
-    videoLink.rel = "noreferrer";
-    videoLink.textContent = "Gameplay Preview";
-    actions.append(videoLink);
-  }
-
-  if (work.link) {
-    const link = document.createElement("a");
-    link.className = "work-card__link";
-    link.href = work.link;
-    link.target = "_blank";
-    link.rel = "noreferrer";
-    link.textContent = "Store Page";
-    actions.append(link);
-  }
-
-  if (actions.children.length) {
-    card.append(actions);
-  }
-
-  return card;
+function wait(ms) {
+  return new Promise((r) => setTimeout(r, ms));
 }
 
-function animateAboutStats() {
-  const statValues = document.querySelectorAll(".about-stat strong[data-target]");
-  statValues.forEach((valueElement) => {
-    const target = Number(valueElement.dataset.target || 0);
-    const suffix = valueElement.dataset.suffix || "";
-    const duration = 950;
-    const startTime = performance.now();
 
-    const tick = (now) => {
-      const progress = Math.min((now - startTime) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const value = Math.round(target * eased);
-      valueElement.textContent = formatStatValue(value, progress === 1 ? suffix : "");
-
-      if (progress < 1 && state.page === "about") {
-        requestAnimationFrame(tick);
-      } else {
-        valueElement.textContent = formatStatValue(target, suffix);
-      }
-    };
-
-    valueElement.textContent = formatStatValue(0, "");
-    requestAnimationFrame(tick);
-  });
-}
-
-function hexToRgb(hex) {
-  const normalized = hex.replace("#", "").trim();
-  if (normalized.length !== 6) {
-    return null;
-  }
-
-  const value = Number.parseInt(normalized, 16);
-  return {
-    r: (value >> 16) & 255,
-    g: (value >> 8) & 255,
-    b: value & 255,
-  };
-}
-
+/* ── Theme ─────────────────────────────────────────────────── */
 function applyTheme(themeName) {
   const fallback = siteData.theme.defaultTheme || "blue";
   const theme = siteData.theme.colors[themeName] ? themeName : fallback;
-  const color = siteData.theme.colors[theme] || "#4f6fdc";
+  const color = siteData.theme.colors[theme] || "#4d79ff";
   const rgb = hexToRgb(color);
 
-  [...shell.classList]
-    .filter((className) => className.startsWith("theme-"))
-    .forEach((className) => shell.classList.remove(className));
-  shell.classList.add(`theme-${theme}`);
-  shell.style.setProperty("--accent", color);
-
+  document.documentElement.style.setProperty("--accent", color);
   if (rgb) {
-    shell.style.setProperty("--accent-soft", `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.14)`);
-    shell.style.setProperty("--accent-line", `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.34)`);
+    document.documentElement.style.setProperty("--accent-soft", `rgba(${rgb.r},${rgb.g},${rgb.b},0.10)`);
+    document.documentElement.style.setProperty("--accent-line", `rgba(${rgb.r},${rgb.g},${rgb.b},0.25)`);
+    document.documentElement.style.setProperty("--accent-glow", `rgba(${rgb.r},${rgb.g},${rgb.b},0.08)`);
   }
 
-  document.querySelectorAll("[data-theme]").forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.theme === theme);
-  });
-
+  $$("[data-theme]").forEach((b) => b.classList.toggle("is-active", b.dataset.theme === theme));
   state.theme = theme;
   localStorage.setItem(storageKeys.theme, theme);
 }
 
+
+/* ── Sound ─────────────────────────────────────────────────── */
 function updateSoundUi() {
-  soundToggle.checked = state.soundEnabled;
-  soundState.textContent = state.soundEnabled ? "On" : "Off";
+  if (soundToggle) soundToggle.checked = state.soundEnabled;
+  if (soundIcon) soundIcon.textContent = state.soundEnabled ? "🔊" : "🔇";
   localStorage.setItem(storageKeys.sound, String(state.soundEnabled));
 }
 
 function synthClick() {
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  if (!AudioContext) {
-    return;
-  }
-
-  audioContext ||= new AudioContext();
-  const oscillator = audioContext.createOscillator();
-  const gain = audioContext.createGain();
-
-  oscillator.type = "sine";
-  oscillator.frequency.setValueAtTime(520, audioContext.currentTime);
-  oscillator.frequency.exponentialRampToValueAtTime(360, audioContext.currentTime + 0.045);
-  gain.gain.setValueAtTime(0.08, audioContext.currentTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.055);
-
-  oscillator.connect(gain);
-  gain.connect(audioContext.destination);
-  oscillator.start();
-  oscillator.stop(audioContext.currentTime + 0.06);
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  audioContext ||= new AC();
+  const o = audioContext.createOscillator();
+  const g = audioContext.createGain();
+  o.type = "sine";
+  o.frequency.setValueAtTime(520, audioContext.currentTime);
+  o.frequency.exponentialRampToValueAtTime(360, audioContext.currentTime + 0.045);
+  g.gain.setValueAtTime(0.08, audioContext.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.055);
+  o.connect(g);
+  g.connect(audioContext.destination);
+  o.start();
+  o.stop(audioContext.currentTime + 0.06);
 }
 
 function playClick() {
-  if (!state.soundEnabled) {
-    return;
+  if (!state.soundEnabled) return;
+  if (!siteData.assets.clickSound || soundFileUnavailable) { synthClick(); return; }
+  const a = new Audio(siteData.assets.clickSound);
+  a.volume = 0.48;
+  a.play().catch(() => { soundFileUnavailable = true; synthClick(); });
+}
+
+
+/* ── Navigation ────────────────────────────────────────────── */
+function setPage(page, updateHash = true) {
+  const next = validPages.includes(page) ? page : "home";
+  state.page = next;
+
+  pages.forEach((p) => p.classList.toggle("is-active", p.dataset.page === next));
+  navLinks.forEach((l) => l.classList.toggle("is-active", l.dataset.route === next));
+  $$(".mobile-nav__link").forEach((l) => l.classList.toggle("is-active", l.dataset.route === next));
+
+  // Background
+  if (heroBg) {
+    heroBg.style.backgroundImage = `url("${siteData.assets.backgrounds[next] || siteData.assets.backgrounds.home}")`;
   }
 
-  if (!siteData.assets.clickSound || soundFileUnavailable) {
-    synthClick();
-    return;
+  if (updateHash) {
+    history.replaceState(null, "", next === "home" ? location.pathname : `#${next}`);
   }
 
-  const clickSound = new Audio(siteData.assets.clickSound);
-  clickSound.volume = 0.48;
-  clickSound.play().catch(() => {
-    soundFileUnavailable = true;
-    synthClick();
-  });
+  if (next === "portfolio") selectCategory(state.category);
+  if (next === "about") animateAboutStats();
+  if (next === "home") runHomeIntro();
+  else showHomeIntroStatic();
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: "instant" });
 }
 
-function closeDropdowns() {
-  document.querySelectorAll(".dropdown.is-open").forEach((dropdown) => {
-    dropdown.classList.remove("is-open");
-    const trigger = dropdown.querySelector(".dropdown__trigger");
-    trigger?.setAttribute("aria-expanded", "false");
-  });
-}
 
-function toggleDropdown(dropdown) {
-  const isOpen = dropdown.classList.contains("is-open");
-  closeDropdowns();
-  dropdown.classList.toggle("is-open", !isOpen);
-  dropdown.querySelector(".dropdown__trigger")?.setAttribute("aria-expanded", String(!isOpen));
-}
-
-function backgroundForPage(page) {
-  return siteData.assets.backgrounds[page] || siteData.assets.backgrounds.home;
-}
-
-function wait(ms) {
-  return new Promise((resolve) => {
-    window.setTimeout(resolve, ms);
-  });
-}
-
+/* ── Home Intro Typing ─────────────────────────────────────── */
 function prepareHomeIntro() {
   homeIntroToken += 1;
-
-  if (homeTitle) {
-    homeTitle.textContent = "";
-    homeTitle.classList.remove("typing-text");
-  }
-
-  if (homeSubtitle) {
-    homeSubtitle.textContent = "";
-    homeSubtitle.classList.remove("typing-text");
-  }
-
-  homeActions?.classList.add("is-hidden");
+  if (homeTitle) { homeTitle.textContent = ""; homeTitle.classList.remove("typing-text"); }
+  if (homeSubtitle) { homeSubtitle.textContent = ""; homeSubtitle.classList.remove("typing-text"); }
 }
 
 function showHomeIntroStatic() {
   homeIntroToken += 1;
   homeTitle?.classList.remove("typing-text");
   homeSubtitle?.classList.remove("typing-text");
-
-  if (homeTitle) {
-    homeTitle.textContent = siteData.person.name;
-  }
-
-  if (homeSubtitle) {
-    homeSubtitle.textContent = siteData.person.title;
-  }
-
-  homeActions?.classList.remove("is-hidden");
+  if (homeTitle) homeTitle.textContent = siteData.person.name;
+  if (homeSubtitle) homeSubtitle.textContent = siteData.person.title;
 }
 
-async function typeText(element, text, speed, token) {
-  element.textContent = "";
-  element.classList.add("typing-text");
-
-  for (const character of text) {
-    if (token !== homeIntroToken || state.page !== "home") {
-      return false;
-    }
-
-    element.textContent += character;
+async function typeText(el, text, speed, token) {
+  el.textContent = "";
+  el.classList.add("typing-text");
+  for (const ch of text) {
+    if (token !== homeIntroToken || state.page !== "home") return false;
+    el.textContent += ch;
     await wait(speed);
   }
-
-  element.classList.remove("typing-text");
+  el.classList.remove("typing-text");
   return true;
 }
 
@@ -398,159 +245,98 @@ async function runHomeIntro() {
     showHomeIntroStatic();
     return;
   }
-
   const token = homeIntroToken + 1;
   homeIntroToken = token;
-  homeActions?.classList.add("is-hidden");
   homeSubtitle.textContent = "";
 
-  const titleDone = await typeText(homeTitle, siteData.person.name, 58, token);
-  if (!titleDone) {
-    return;
-  }
-
-  await wait(220);
-  const subtitleDone = await typeText(homeSubtitle, siteData.person.title, 38, token);
-  if (!subtitleDone) {
-    return;
-  }
-
-  await wait(160);
-  if (token === homeIntroToken && state.page === "home") {
-    homeActions?.classList.remove("is-hidden");
-  }
+  const ok1 = await typeText(homeTitle, siteData.person.name, 55, token);
+  if (!ok1) return;
+  await wait(200);
+  const ok2 = await typeText(homeSubtitle, siteData.person.title, 35, token);
+  if (!ok2) return;
 }
 
-function setPage(page, updateHash = true) {
-  const nextPage = validPages.includes(page) ? page : "home";
-  state.page = nextPage;
-  shell.dataset.view = nextPage;
 
-  pages.forEach((pageElement) => {
-    pageElement.classList.toggle("is-active", pageElement.dataset.page === nextPage);
+/* ── About Stats Animation ─────────────────────────────────── */
+function animateAboutStats() {
+  $$(".about-stat strong[data-target]").forEach((el) => {
+    const target = Number(el.dataset.target || 0);
+    const suffix = el.dataset.suffix || "";
+    const dur = 950;
+    const start = performance.now();
+    const tick = (now) => {
+      const p = Math.min((now - start) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = formatStatValue(Math.round(target * eased), p === 1 ? suffix : "");
+      if (p < 1 && state.page === "about") requestAnimationFrame(tick);
+      else el.textContent = formatStatValue(target, suffix);
+    };
+    el.textContent = "0";
+    requestAnimationFrame(tick);
   });
-
-  backgroundLayer.style.backgroundImage = `url("${backgroundForPage(nextPage)}")`;
-
-  if (nextPage === "portfolio") {
-    backButton.innerHTML = "&larr; Back to Main Menu";
-    selectCategory(state.category);
-  } else if (nextPage === "contact") {
-    backButton.innerHTML = "&larr; Back Home";
-  } else {
-    backButton.innerHTML = "&larr; Back to Home";
-  }
-
-  if (updateHash) {
-    history.replaceState(null, "", nextPage === "home" ? location.pathname : `#${nextPage}`);
-  }
-
-  closeDropdowns();
-
-  if (nextPage === "home") {
-    runHomeIntro();
-  } else {
-    showHomeIntroStatic();
-  }
-
-  if (nextPage === "about") {
-    animateAboutStats();
-  }
 }
 
-function projectMatchesCategory(project, category) {
-  return category === "All Projects" || project.category === category;
+
+/* ── Portfolio / Projects ──────────────────────────────────── */
+function projectMatchesCategory(proj, cat) {
+  return cat === "All Projects" || proj.category === cat;
 }
 
-function getProjectForCategory(category) {
-  return siteData.projects.find((project) => projectMatchesCategory(project, category));
+function getProjectForCategory(cat) {
+  return siteData.projects.find((p) => projectMatchesCategory(p, cat));
 }
 
-function getProjectIndex(project) {
-  return siteData.projects.findIndex((item) => item.title === project?.title);
+function getProjectIndex(proj) {
+  return siteData.projects.findIndex((p) => p.title === proj?.title);
 }
 
-function formatTime(seconds) {
-  if (!Number.isFinite(seconds) || seconds < 0) {
-    return "0:00";
-  }
-
-  const minutes = Math.floor(seconds / 60);
-  const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, "0");
-  return `${minutes}:${remainingSeconds}`;
+function getProjectImages(proj) {
+  const imgs = Array.isArray(proj.imagePaths) ? proj.imagePaths.filter(Boolean) : [];
+  if (imgs.length) return imgs;
+  return [proj.thumbnailPath, siteData.assets.backgrounds.portfolio, siteData.assets.backgrounds.home].filter(Boolean);
 }
 
-function getProjectImages(project) {
-  const images = Array.isArray(project.imagePaths)
-    ? project.imagePaths.filter(Boolean)
-    : [];
-
-  if (images.length) {
-    return images;
-  }
-
-  return [
-    project.thumbnailPath,
-    siteData.assets.backgrounds.portfolio,
-    siteData.assets.backgrounds.home,
-  ].filter(Boolean);
-}
-
+/* Slideshow */
 function resetSlideshowProgress() {
-  progressFill.style.transition = "none";
-  progressFill.style.width = "0";
+  if (progressFill) { progressFill.style.transition = "none"; progressFill.style.width = "0"; }
 }
 
 function animateSlideshowProgress() {
   resetSlideshowProgress();
-
-  if (slideshowPaused || slideshowImages.length <= 1) {
-    return;
-  }
-
-  window.requestAnimationFrame(() => {
+  if (slideshowPaused || slideshowImages.length <= 1) return;
+  requestAnimationFrame(() => {
     progressFill.style.transition = `width ${slideDuration}ms linear`;
     progressFill.style.width = "100%";
   });
 }
 
 function stopImageSlideshow() {
-  window.clearInterval(slideshowTimer);
+  clearInterval(slideshowTimer);
   slideshowTimer = null;
   slideshowImages = [];
   slideshowIndex = 0;
   slideshowPaused = false;
-  videoFrame.classList.remove("has-slideshow");
+  videoFrame?.classList.remove("has-slideshow");
   resetSlideshowProgress();
 }
 
 function showSlide(index, projectName) {
-  if (!slideshowImages.length) {
-    return;
-  }
-
+  if (!slideshowImages.length) return;
   slideshowIndex = index;
   projectPoster.classList.add("is-changing");
-
-  window.setTimeout(() => {
+  setTimeout(() => {
     projectPoster.src = slideshowImages[slideshowIndex];
     projectPoster.alt = `${projectName} image ${slideshowIndex + 1}`;
     projectPoster.classList.remove("is-changing");
   }, 120);
-
   animateSlideshowProgress();
 }
 
 function queueNextSlide(projectName) {
-  window.clearInterval(slideshowTimer);
-
-  if (slideshowPaused || slideshowImages.length <= 1) {
-    return;
-  }
-
-  slideshowTimer = window.setInterval(() => {
-    const nextIndex = (slideshowIndex + 1) % slideshowImages.length;
-    showSlide(nextIndex, projectName);
+  clearInterval(slideshowTimer);
+  if (slideshowPaused || slideshowImages.length <= 1) return;
+  slideshowTimer = setInterval(() => {
+    showSlide((slideshowIndex + 1) % slideshowImages.length, projectName);
   }, slideDuration);
 }
 
@@ -562,28 +348,22 @@ function startImageSlideshow(images, projectName) {
   videoFrame.classList.add("has-slideshow", "has-poster");
   playIcon.textContent = "❚❚";
   durationText.textContent = images.length > 1 ? "Images" : "Image";
-
   showSlide(0, projectName);
   queueNextSlide(projectName);
 }
 
 function toggleImageSlideshow() {
-  if (!videoFrame.classList.contains("has-slideshow")) {
-    return false;
-  }
-
+  if (!videoFrame.classList.contains("has-slideshow")) return false;
   slideshowPaused = !slideshowPaused;
   playIcon.textContent = slideshowPaused ? "▶" : "❚❚";
-
   if (slideshowPaused) {
-    window.clearInterval(slideshowTimer);
+    clearInterval(slideshowTimer);
     slideshowTimer = null;
     progressFill.style.transition = "none";
   } else {
     animateSlideshowProgress();
     queueNextSlide(state.project.title);
   }
-
   return true;
 }
 
@@ -600,10 +380,7 @@ function resetVideoState() {
 }
 
 function showActiveVideoFrame() {
-  if (!projectVideo.videoWidth || !projectVideo.videoHeight || videoFrame.classList.contains("has-slideshow")) {
-    return;
-  }
-
+  if (!projectVideo.videoWidth || !projectVideo.videoHeight || videoFrame.classList.contains("has-slideshow")) return;
   videoFrame.classList.add("has-video");
   videoFrame.classList.remove("has-poster", "has-fallback", "is-loading-video");
 }
@@ -611,404 +388,545 @@ function showActiveVideoFrame() {
 function renderProject(project) {
   resetVideoState();
 
-  const fallbackProject = {
+  const fallback = {
     title: state.category,
     tags: "Coming Soon",
-    description: "Add a project to this category in js/data/siteData.js when it is ready.",
+    description: "Projects coming soon for this category.",
     thumbnailPath: siteData.assets.backgrounds.portfolio || siteData.assets.backgrounds.home,
     videoPath: "",
   };
 
-  const activeProject = project || fallbackProject;
-  state.project = activeProject;
-  const projectImages = getProjectImages(activeProject);
+  const active = project || fallback;
+  state.project = active;
+  const images = getProjectImages(active);
 
-  projectTitle.textContent = activeProject.title;
-  projectTags.textContent = activeProject.tags;
-  projectDescription.textContent = activeProject.description;
+  projectTitle.textContent = active.title;
+  projectTags.textContent = active.tags;
+  projectDescription.textContent = active.description;
   projectLinks.replaceChildren();
-  projectPoster.src = projectImages[0];
-  projectPoster.alt = `${activeProject.title} thumbnail`;
+  projectPoster.src = images[0];
+  projectPoster.alt = `${active.title} thumbnail`;
   videoFrame.classList.add("has-poster");
 
-  if (!activeProject.videoPath || activeProject.videoAvailable === false) {
-    startImageSlideshow(projectImages, activeProject.title);
+  if (!active.videoPath || active.videoAvailable === false) {
+    startImageSlideshow(images, active.title);
     return;
   }
 
-  projectVideo.src = activeProject.videoPath;
+  projectVideo.src = active.videoPath;
   projectVideo.muted = true;
   videoFrame.classList.add("is-loading-video");
   projectVideo.load();
-  projectVideo.play().catch(() => {
-    startImageSlideshow(projectImages, activeProject.title);
-  });
+  projectVideo.play().catch(() => startImageSlideshow(images, active.title));
 }
 
 function selectCategory(category) {
   state.category = siteData.categories.includes(category) ? category : siteData.defaultCategory;
-  const selectedProject = getProjectForCategory(state.category);
+  const proj = getProjectForCategory(state.category);
 
-  categoryLabel.textContent = state.category;
-  portfolioTitle.textContent = `Portfolio / ${state.category}`;
-  categoryList.querySelectorAll("[data-category]").forEach((button) => {
-    button.classList.toggle("is-selected", button.dataset.category === state.category);
-  });
+  if (portfolioTitle) portfolioTitle.textContent = `Portfolio / ${state.category}`;
+  $$("[data-category]").forEach((b) => b.classList.toggle("is-active", b.dataset.category === state.category));
 
-  renderProject(selectedProject);
+  renderProject(proj);
 }
 
 function selectProject(project) {
-  if (!project) {
-    return;
-  }
-
+  if (!project) return;
   state.category = project.category;
-  categoryLabel.textContent = state.category;
-  portfolioTitle.textContent = `Portfolio / ${state.category}`;
-  categoryList.querySelectorAll("[data-category]").forEach((button) => {
-    button.classList.toggle("is-selected", button.dataset.category === state.category);
-  });
+  if (portfolioTitle) portfolioTitle.textContent = `Portfolio / ${state.category}`;
+  $$("[data-category]").forEach((b) => b.classList.toggle("is-active", b.dataset.category === state.category));
   renderProject(project);
 }
 
 function selectNextProject() {
-  if (!siteData.projects.length) {
-    return;
-  }
-
-  const currentIndex = getProjectIndex(state.project);
-  const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % siteData.projects.length : 0;
-  selectProject(siteData.projects[nextIndex]);
+  if (!siteData.projects.length) return;
+  const i = getProjectIndex(state.project);
+  selectProject(siteData.projects[i >= 0 ? (i + 1) % siteData.projects.length : 0]);
 }
 
 function selectPreviousProject() {
-  if (!siteData.projects.length) {
-    return;
+  if (!siteData.projects.length) return;
+  const i = getProjectIndex(state.project);
+  selectProject(siteData.projects[i >= 0 ? (i - 1 + siteData.projects.length) % siteData.projects.length : siteData.projects.length - 1]);
+}
+
+
+/* ── Rendering ─────────────────────────────────────────────── */
+function createToolChip(tool, className = "tool-chip") {
+  const item = document.createElement("span");
+  item.className = className;
+
+  if (className === "tool-chip") {
+    const icon = document.createElement("span");
+    icon.className = "tool-chip__icon";
+    if (tool.iconPath) {
+      const img = document.createElement("img");
+      img.src = tool.iconPath;
+      img.alt = "";
+      img.loading = "lazy";
+      icon.append(img);
+    } else {
+      icon.textContent = tool.icon || tool.label?.slice(0, 2) || "";
+    }
+    const label = document.createElement("span");
+    label.className = "tool-chip__label";
+    label.textContent = tool.label || tool;
+    if (tool.key) item.dataset.tool = tool.key;
+    item.append(icon, label);
+    return item;
   }
 
-  const currentIndex = getProjectIndex(state.project);
-  const previousIndex =
-    currentIndex >= 0
-      ? (currentIndex - 1 + siteData.projects.length) % siteData.projects.length
-      : siteData.projects.length - 1;
-  selectProject(siteData.projects[previousIndex]);
+  if (tool.iconPath) {
+    const img = document.createElement("img");
+    img.src = tool.iconPath;
+    img.alt = tool.label || "";
+    img.loading = "lazy";
+    item.append(img);
+  } else {
+    item.textContent = tool.icon || tool.label?.slice(0, 2) || "";
+  }
+  item.title = tool.label;
+  return item;
+}
+
+function createToolkitMarquee() {
+  const marquee = document.createElement("div");
+  marquee.className = "tool-marquee";
+  marquee.setAttribute("aria-label", "Moving tool logos");
+  const track = document.createElement("div");
+  track.className = "tool-marquee__track";
+  const tools = [...(siteData.about.toolkit || []), ...(siteData.about.toolkit || [])];
+  tools.forEach((t) => track.append(createToolChip(t, "marquee-tool")));
+  marquee.append(track);
+  return marquee;
+}
+
+function createWorkExperienceCard(work) {
+  const card = document.createElement("article");
+  card.className = "work-card";
+
+  const heading = document.createElement("div");
+  heading.className = "work-card__heading";
+  const title = document.createElement("h4");
+  title.textContent = work.role || work.project || "Work Experience";
+  const meta = document.createElement("p");
+  meta.textContent = [work.company, work.period].filter(Boolean).join(" / ");
+  heading.append(title, meta);
+  card.append(heading);
+
+  if (work.project) {
+    const proj = document.createElement("p");
+    proj.className = "work-card__project";
+    proj.textContent = work.project;
+    card.append(proj);
+  }
+
+  if (work.description) {
+    const desc = document.createElement("p");
+    desc.className = "work-card__description";
+    desc.textContent = work.description;
+    card.append(desc);
+  }
+
+  const actions = document.createElement("div");
+  actions.className = "work-card__actions";
+
+  if (work.videoPath && isDirectVideoFile(work.videoPath)) {
+    const video = document.createElement("video");
+    video.className = "work-card__video";
+    video.src = work.videoPath;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    card.append(video);
+  } else if (work.videoPath) {
+    const link = document.createElement("a");
+    link.className = "work-card__link";
+    link.href = work.videoPath;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    link.textContent = "Gameplay Preview";
+    actions.append(link);
+  }
+
+  if (work.link) {
+    const link = document.createElement("a");
+    link.className = "work-card__link";
+    link.href = work.link;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    link.textContent = "Store Page";
+    actions.append(link);
+  }
+
+  if (actions.children.length) card.append(actions);
+  return card;
 }
 
 function renderCategories() {
-  categoryList.replaceChildren();
-  siteData.categories.forEach((category) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "dropdown__item sound-action";
-    button.dataset.category = category;
-    button.setAttribute("role", "option");
-    button.textContent = category;
-    categoryList.append(button);
+  if (!portfolioFilters) return;
+  portfolioFilters.replaceChildren();
+  siteData.categories.forEach((cat) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "filter-btn sound-action";
+    btn.dataset.category = cat;
+    btn.setAttribute("role", "tab");
+    btn.textContent = cat;
+    portfolioFilters.append(btn);
   });
 }
 
 function resolveContactHref(link) {
-  if (link.key === "email") {
-    return `mailto:${siteData.contact.email}`;
-  }
-
+  if (link.key === "email") return `mailto:${siteData.contact.email}`;
   return siteData.contact[link.key] || "#";
 }
 
+function buildContactCard(link) {
+  const card = document.createElement("a");
+  card.className = `contact-card contact-card--${link.key} sound-action`;
+  card.href = resolveContactHref(link);
+  if (!card.href.startsWith("mailto:")) {
+    card.target = "_blank";
+    card.rel = "noreferrer";
+  }
+
+  const icon = document.createElement("span");
+  icon.className = "contact-icon";
+  icon.textContent = link.icon;
+
+  const body = document.createElement("div");
+  body.className = "contact-card__body";
+  const title = document.createElement("h3");
+  title.textContent = link.title;
+  const text = document.createElement("p");
+  text.textContent = link.text;
+  body.append(title, text);
+
+  const action = document.createElement("span");
+  action.className = "contact-action";
+  action.textContent = `${link.action} →`;
+
+  card.append(icon, body, action);
+  return card;
+}
+
+function buildResumeCard() {
+  const card = document.createElement("a");
+  card.className = "contact-card contact-card--resume sound-action";
+  card.href = siteData.contact.resumePath || "assets/docs/resume.pdf";
+  card.download = "";
+  card.target = "_blank";
+  card.rel = "noreferrer";
+
+  const icon = document.createElement("span");
+  icon.className = "contact-icon";
+  icon.textContent = "📄";
+
+  const body = document.createElement("div");
+  body.className = "contact-card__body";
+  const title = document.createElement("h3");
+  title.textContent = "Resume";
+  const text = document.createElement("p");
+  text.textContent = "Download my resume.";
+  body.append(title, text);
+
+  const action = document.createElement("span");
+  action.className = "contact-action";
+  action.textContent = "Download →";
+
+  card.append(icon, body, action);
+  return card;
+}
+
 function renderContactCards() {
-  const contactGrid = document.querySelector("#contactGrid");
+  if (!contactGrid) return;
   contactGrid.replaceChildren();
+  siteData.contact.links.forEach((link) => contactGrid.append(buildContactCard(link)));
+  contactGrid.append(buildResumeCard());
+}
 
-  siteData.contact.links.forEach((link) => {
-    const card = document.createElement("a");
-    card.className = `contact-card contact-card--${link.key} sound-action`;
-    card.href = resolveContactHref(link);
+function renderFeaturedProjects() {
+  if (!featuredList) return;
+  featuredList.replaceChildren();
 
-    if (!card.href.startsWith("mailto:")) {
-      card.target = "_blank";
-      card.rel = "noreferrer";
+  // Find all projects marked as featured in siteData
+  let picks = siteData.projects
+    .filter((p) => p.featured)
+    .map((p) => {
+      // Clean category label
+      const label = p.category.replace(" Projects", "").replace("s", "");
+      return { project: p, label };
+    });
+
+  // Fallback to picking one project from each main category if no featured projects are defined
+  if (picks.length === 0) {
+    const featuredCategories = [
+      { cat: "Unreal Engine Projects", label: "Unreal Engine" },
+      { cat: "UEFN Projects", label: "UEFN" },
+      { cat: "Environments", label: "Environment" },
+    ];
+    picks = featuredCategories.map(({ cat, label }) => {
+      const withVideo = siteData.projects.find((p) => p.category === cat && p.videoAvailable);
+      const any = siteData.projects.find((p) => p.category === cat);
+      return { project: withVideo || any, label };
+    }).filter(({ project }) => project);
+  }
+
+  picks.forEach(({ project, label }, index) => {
+    const row = document.createElement("div");
+    row.className = "featured-row" + (index % 2 === 1 ? " featured-row--reverse" : "");
+
+    // Media side
+    const media = document.createElement("div");
+    media.className = "featured-row__media";
+
+    const images = getProjectImages(project);
+
+    if (project.videoPath && project.videoAvailable) {
+      const video = document.createElement("video");
+      video.src = project.videoPath;
+      video.muted = true;
+      video.playsInline = true;
+      video.loop = true;
+      video.preload = "metadata";
+      video.autoplay = false;
+      media.append(video);
+
+      // Poster fallback
+      if (images[0]) {
+        const poster = document.createElement("img");
+        poster.src = images[0];
+        poster.alt = `${project.title} thumbnail`;
+        poster.loading = "lazy";
+        media.append(poster);
+      }
+
+      // IntersectionObserver to autoplay when visible
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(media);
+
+    } else if (images[0]) {
+      const img = document.createElement("img");
+      img.src = images[0];
+      img.alt = `${project.title} thumbnail`;
+      img.loading = "lazy";
+      media.append(img);
     }
 
-    const top = document.createElement("div");
-    const icon = document.createElement("span");
-    icon.className = "contact-icon";
-    icon.textContent = link.icon;
+    // Info side
+    const info = document.createElement("div");
+    info.className = "featured-row__info";
+
+    const category = document.createElement("span");
+    category.className = "featured-row__category";
+    category.textContent = label;
 
     const title = document.createElement("h3");
-    title.textContent = link.title;
+    title.className = "featured-row__title";
+    title.textContent = project.title;
 
-    const text = document.createElement("p");
-    text.textContent = link.text;
+    const tags = document.createElement("p");
+    tags.className = "featured-row__tags";
+    tags.textContent = project.tags;
 
-    top.append(icon, title, text);
+    const desc = document.createElement("p");
+    desc.className = "featured-row__desc";
+    desc.textContent = project.description;
 
-    const action = document.createElement("span");
-    action.className = "contact-action";
-    action.textContent = `${link.action} \u2192`;
+    info.append(category, title, tags, desc);
+    row.append(media, info);
+    featuredList.append(row);
+  });
+}
 
-    card.append(top, action);
-    contactGrid.append(card);
+function renderFooterLinks() {
+  if (!footerLinks) return;
+  footerLinks.replaceChildren();
+
+  siteData.contact.links.forEach((link) => {
+    const a = document.createElement("a");
+    a.className = "footer__link";
+    a.href = resolveContactHref(link);
+    a.textContent = link.title;
+    if (!a.href.startsWith("mailto:")) { a.target = "_blank"; a.rel = "noreferrer"; }
+    footerLinks.append(a);
   });
 }
 
 function renderStaticContent() {
   document.title = `${siteData.person.name} | ${siteData.person.title}`;
-  if (siteData.fonts?.body) {
-    document.documentElement.style.setProperty("--sans", siteData.fonts.body);
-  }
 
-  if (siteData.fonts?.display) {
-    document.documentElement.style.setProperty("--serif", siteData.fonts.display);
-    document.documentElement.style.setProperty("--font-display", siteData.fonts.display);
-  }
+  if (siteData.fonts?.body) document.documentElement.style.setProperty("--font-body", siteData.fonts.body);
+  if (siteData.fonts?.display) document.documentElement.style.setProperty("--font-display", siteData.fonts.display);
 
-  document.querySelectorAll(".logo-button").forEach((button) => {
-    button.textContent = siteData.person.logoText;
-  });
+  // Nav logo
+  if (navLogo) navLogo.textContent = siteData.person.logoText;
 
+  // Hero
   setText("#homeTitle", siteData.person.name);
   setText("#homeSubtitle", siteData.person.title);
+  if (heroIntro) heroIntro.textContent = siteData.about.intro || "";
+  if (heroProfileImage) {
+    heroProfileImage.src = siteData.assets.profileImage;
+    heroProfileImage.alt = `${siteData.person.name} profile image`;
+  }
+
+  // Hero background
+  if (heroBg) heroBg.style.backgroundImage = `url("${siteData.assets.backgrounds.home}")`;
+
+  // Hero stats
+  if (heroStats) {
+    heroStats.replaceChildren();
+    siteData.about.stats?.forEach((stat) => {
+      const wrap = document.createElement("div");
+      wrap.className = "hero-stat";
+      const val = document.createElement("span");
+      val.className = "hero-stat__value";
+      val.textContent = formatStatValue(stat.value, stat.suffix);
+      const label = document.createElement("span");
+      label.className = "hero-stat__label";
+      label.textContent = stat.label;
+      wrap.append(val, label);
+      heroStats.append(wrap);
+    });
+  }
+
+  // About
+  if (profileImage) {
+    profileImage.src = siteData.assets.profileImage;
+    profileImage.alt = `${siteData.person.name} profile image`;
+  }
   setText("#aboutTitle", siteData.about.heading);
   setText("#aboutText", siteData.about.text);
-  setText("#profileCaption", siteData.person.profileLabel);
 
-  const profileImage = document.querySelector("#profileImage");
-  profileImage.src = siteData.assets.profileImage;
-  profileImage.alt = `${siteData.person.name} profile image`;
+  // About stats
+  if (aboutStats) {
+    aboutStats.replaceChildren();
+    siteData.about.stats?.forEach((stat) => {
+      const item = document.createElement("span");
+      item.className = "about-stat";
+      const value = document.createElement("strong");
+      value.textContent = "0";
+      value.dataset.target = stat.value;
+      value.dataset.suffix = stat.suffix || "";
+      const label = document.createElement("span");
+      label.textContent = stat.label;
+      item.append(value, label);
+      aboutStats.append(item);
+    });
+  }
 
-  const aboutPage = document.querySelector("#aboutPage");
-  const portrait = siteData.about.portrait || {};
-  const portraitSettings = {
-    "--about-portrait-opacity": portrait.opacity,
-    "--about-portrait-zoom": portrait.zoom,
-    "--about-portrait-right": portrait.rightOffset,
-    "--about-portrait-top": portrait.topOffset,
-    "--about-portrait-image-shift-y": portrait.imageShiftY,
-    "--about-portrait-object-position": portrait.objectPosition,
-    "--about-tool-icon-size": siteData.about.iconSize ? `${siteData.about.iconSize}px` : undefined,
-    "--about-slider-icon-size": siteData.about.sliderIconSize ? `${siteData.about.sliderIconSize}px` : undefined,
-  };
+  // About sections — skip "Experience" and render toolkit marquee directly (removing the collapsible details box)
+  if (aboutSections) {
+    aboutSections.replaceChildren();
 
-  Object.entries(portraitSettings).forEach(([property, value]) => {
-    if (aboutPage && value !== undefined && value !== null && value !== "") {
-      aboutPage.style.setProperty(property, String(value));
-    }
-  });
+    const toolkitWrapper = document.createElement("div");
+    toolkitWrapper.className = "about-toolkit";
 
-  const aboutStats = document.querySelector("#aboutStats");
-  aboutStats?.replaceChildren();
-  siteData.about.stats?.forEach((stat) => {
-    const item = document.createElement("span");
-    item.className = "about-stat";
+    const title = document.createElement("h3");
+    title.className = "about-toolkit__title";
+    title.textContent = "Creative Toolkit";
 
-    const value = document.createElement("strong");
-    value.textContent = "0";
-    value.dataset.target = stat.value;
-    value.dataset.suffix = stat.suffix || "";
-
-    const label = document.createElement("span");
-    label.textContent = stat.label;
-
-    item.append(value, label);
-    aboutStats.append(item);
-  });
-
-  const aboutSections = document.querySelector("#aboutSections");
-  aboutSections?.replaceChildren();
-  siteData.about.sections?.forEach((section) => {
-    const details = document.createElement("details");
-    details.className = "about-detail";
-    details.dataset.section = section.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-    details.open = Boolean(section.open);
-
-    const summary = document.createElement("summary");
-    summary.className = "sound-action";
-    summary.textContent = section.title;
-
-    const text = document.createElement("p");
-    text.textContent = section.text;
-
-    details.append(summary, text);
-
-    if (Array.isArray(section.bullets) && section.bullets.length) {
-      const list = document.createElement("ul");
-      list.className = "about-detail__list";
-      section.bullets.forEach((bullet) => {
-        const item = document.createElement("li");
-        item.textContent = bullet;
-        list.append(item);
-      });
-      details.append(list);
-    }
-
-    if (Array.isArray(section.work) && section.work.length) {
-      const workList = document.createElement("div");
-      workList.className = "work-list";
-      section.work.forEach((work) => {
-        workList.append(createWorkExperienceCard(work));
-      });
-      details.append(workList);
-    }
-
-    if (section.showToolkit) {
-      details.append(createToolkitMarquee());
-    }
-
-    aboutSections.append(details);
-  });
+    toolkitWrapper.append(title, createToolkitMarquee());
+    aboutSections.append(toolkitWrapper);
+  }
 
   renderCategories();
   renderContactCards();
+  renderFeaturedProjects();
+  renderFooterLinks();
 }
 
+
+/* ── Video Controls ────────────────────────────────────────── */
 function updateVideoProgress() {
-  const duration = projectVideo.duration;
-  const current = projectVideo.currentTime;
-  const percent = Number.isFinite(duration) && duration > 0 ? (current / duration) * 100 : 0;
-  progressFill.style.width = `${percent}%`;
-  durationText.textContent = Number.isFinite(duration) ? formatTime(duration) : formatTime(current);
+  const d = projectVideo.duration;
+  const c = projectVideo.currentTime;
+  const pct = Number.isFinite(d) && d > 0 ? (c / d) * 100 : 0;
+  progressFill.style.width = `${pct}%`;
+  durationText.textContent = Number.isFinite(d) ? formatTime(d) : formatTime(c);
 }
 
-document.addEventListener("click", (event) => {
-  const soundTarget = event.target.closest(".sound-action");
-  if (soundTarget) {
-    playClick();
-  }
 
-  const trigger = event.target.closest(".dropdown__trigger");
-  if (trigger) {
-    toggleDropdown(trigger.closest(".dropdown"));
-    return;
-  }
+/* ── Event Listeners ───────────────────────────────────────── */
 
-  const categoryButton = event.target.closest("[data-category]");
-  if (categoryButton) {
-    selectCategory(categoryButton.dataset.category);
-    closeDropdowns();
-    return;
-  }
+// Global click delegation
+document.addEventListener("click", (e) => {
+  const sound = e.target.closest(".sound-action");
+  if (sound) playClick();
 
-  const routeButton = event.target.closest("[data-route]");
-  if (routeButton) {
-    setPage(routeButton.dataset.route);
-    return;
-  }
+  const category = e.target.closest("[data-category]");
+  if (category) { selectCategory(category.dataset.category); return; }
 
-  if (!event.target.closest(".dropdown")) {
-    closeDropdowns();
-  }
+  const route = e.target.closest("[data-route]");
+  if (route) { setPage(route.dataset.route); return; }
 });
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeDropdowns();
-  }
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") { /* nothing to close in the new design */ }
 });
 
-soundToggle.addEventListener("change", () => {
+// Sound toggle
+soundToggle?.addEventListener("change", () => {
   state.soundEnabled = soundToggle.checked;
   updateSoundUi();
   playClick();
 });
 
-document.querySelectorAll("[data-theme]").forEach((button) => {
-  button.addEventListener("click", () => {
-    applyTheme(button.dataset.theme);
-  });
+// Theme buttons
+$$("[data-theme]").forEach((b) => {
+  b.addEventListener("click", () => applyTheme(b.dataset.theme));
 });
 
-playButton.addEventListener("click", () => {
-  if (toggleImageSlideshow()) {
-    return;
-  }
-
-  if (!projectVideo.src || videoFrame.classList.contains("has-fallback")) {
-    return;
-  }
-
-  if (projectVideo.paused) {
-    projectVideo.play().catch(() => videoFrame.classList.add("has-fallback"));
-  } else {
-    projectVideo.pause();
-  }
+// Play button
+playButton?.addEventListener("click", () => {
+  if (toggleImageSlideshow()) return;
+  if (!projectVideo.src || videoFrame.classList.contains("has-fallback")) return;
+  if (projectVideo.paused) projectVideo.play().catch(() => videoFrame.classList.add("has-fallback"));
+  else projectVideo.pause();
 });
 
-muteButton.addEventListener("click", () => {
+// Mute button
+muteButton?.addEventListener("click", () => {
   projectVideo.muted = !projectVideo.muted;
   muteIcon.textContent = projectVideo.muted ? "◕" : "●";
 });
 
-progressTrack.addEventListener("click", (event) => {
-  if (!Number.isFinite(projectVideo.duration) || projectVideo.duration <= 0) {
-    return;
-  }
-
+// Progress seek
+progressTrack?.addEventListener("click", (e) => {
+  if (!Number.isFinite(projectVideo.duration) || projectVideo.duration <= 0) return;
   const rect = progressTrack.getBoundingClientRect();
-  const ratio = (event.clientX - rect.left) / rect.width;
+  const ratio = (e.clientX - rect.left) / rect.width;
   projectVideo.currentTime = Math.max(0, Math.min(projectVideo.duration, ratio * projectVideo.duration));
 });
 
-prevProjectButton.addEventListener("click", selectPreviousProject);
-nextProjectButton.addEventListener("click", selectNextProject);
+// Project nav
+prevProjectButton?.addEventListener("click", selectPreviousProject);
+nextProjectButton?.addEventListener("click", selectNextProject);
 
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const formData = new FormData(contactForm);
-  const name = formData.get("name")?.toString().trim() || "";
-  const email = formData.get("email")?.toString().trim() || "";
-  const phone = formData.get("phone")?.toString().trim() || "";
-  const message = formData.get("message")?.toString().trim() || "";
-  const subject = encodeURIComponent(`Portfolio inquiry from ${name || "website visitor"}`);
-  const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "Not provided"}\n\nMessage:\n${message}`
-  );
+// Contact form removed — contact is now link cards only
 
-  window.location.href = `mailto:${siteData.contact.email}?subject=${subject}&body=${body}`;
+// Video events
+projectVideo?.addEventListener("play", () => { playIcon.textContent = "❚❚"; });
+projectVideo?.addEventListener("pause", () => { playIcon.textContent = "▶"; });
+projectVideo?.addEventListener("timeupdate", updateVideoProgress);
+projectVideo?.addEventListener("loadedmetadata", updateVideoProgress);
+projectVideo?.addEventListener("loadeddata", showActiveVideoFrame);
+projectVideo?.addEventListener("canplay", showActiveVideoFrame);
+projectVideo?.addEventListener("waiting", () => {
+  if (!videoFrame.classList.contains("has-slideshow")) videoFrame.classList.add("is-loading-video");
 });
-
-if (cursorRing && window.matchMedia("(pointer: fine)").matches) {
-  window.addEventListener("pointermove", (event) => {
-    cursorRing.style.left = `${event.clientX}px`;
-    cursorRing.style.top = `${event.clientY}px`;
-    cursorRing.classList.add("is-visible");
-  });
-
-  window.addEventListener("pointerdown", () => cursorRing.classList.add("is-active"));
-  window.addEventListener("pointerup", () => cursorRing.classList.remove("is-active"));
-  document.addEventListener("pointerover", (event) => {
-    if (event.target.closest("button, a, input, textarea, label, .dropdown__item")) {
-      cursorRing.classList.add("is-hovering");
-    }
-  });
-  document.addEventListener("pointerout", (event) => {
-    if (event.target.closest("button, a, input, textarea, label, .dropdown__item")) {
-      cursorRing.classList.remove("is-hovering");
-    }
-  });
-  document.addEventListener("mouseleave", () => cursorRing.classList.remove("is-visible"));
-  document.addEventListener("mouseenter", () => cursorRing.classList.add("is-visible"));
-}
-
-projectVideo.addEventListener("play", () => {
-  playIcon.textContent = "❚❚";
-});
-
-projectVideo.addEventListener("pause", () => {
-  playIcon.textContent = "▶";
-});
-
-projectVideo.addEventListener("timeupdate", updateVideoProgress);
-projectVideo.addEventListener("loadedmetadata", updateVideoProgress);
-projectVideo.addEventListener("loadeddata", showActiveVideoFrame);
-projectVideo.addEventListener("canplay", showActiveVideoFrame);
-projectVideo.addEventListener("waiting", () => {
-  if (!videoFrame.classList.contains("has-slideshow")) {
-    videoFrame.classList.add("is-loading-video");
-  }
-});
-projectVideo.addEventListener("playing", showActiveVideoFrame);
-projectVideo.addEventListener("error", () => {
+projectVideo?.addEventListener("playing", showActiveVideoFrame);
+projectVideo?.addEventListener("error", () => {
   videoFrame.classList.remove("is-loading-video");
   if (state.project && !videoFrame.classList.contains("has-slideshow")) {
     startImageSlideshow(getProjectImages(state.project), state.project.title);
@@ -1017,50 +935,63 @@ projectVideo.addEventListener("error", () => {
   }
 });
 
+// Hash change
 window.addEventListener("hashchange", () => {
   setPage(location.hash.replace("#", ""), false);
 });
 
+// Cursor glow (desktop only)
+if (cursorGlow && window.matchMedia("(pointer: fine)").matches) {
+  window.addEventListener("pointermove", (e) => {
+    cursorGlow.style.left = `${e.clientX}px`;
+    cursorGlow.style.top = `${e.clientY}px`;
+    cursorGlow.classList.add("is-visible");
+  });
+  document.addEventListener("mouseleave", () => cursorGlow.classList.remove("is-visible"));
+  document.addEventListener("mouseenter", () => cursorGlow.classList.add("is-visible"));
+}
+
+// Navbar scroll effect
+let lastScroll = 0;
+window.addEventListener("scroll", () => {
+  const y = window.scrollY;
+  nav?.classList.toggle("is-scrolled", y > 20);
+  lastScroll = y;
+}, { passive: true });
+
+
+/* ── Init ──────────────────────────────────────────────────── */
 renderStaticContent();
 applyTheme(state.theme);
 updateSoundUi();
 setPage(state.page, false);
 
+
+/* ── Loader ────────────────────────────────────────────────── */
 function hideLoader() {
-  if (!loadingScreen) {
-    return;
-  }
-
+  if (!loader) return;
   const elapsed = performance.now() - loadStartedAt;
-  const remaining = Math.max(0, 1250 - elapsed);
-
-  window.setTimeout(() => {
-    if (loaderProgress) {
-      loaderProgress.textContent = "100%";
-    }
-
-    loadingScreen.classList.add("is-hidden");
-    window.setTimeout(() => loadingScreen.remove(), 520);
+  const remaining = Math.max(0, 1100 - elapsed);
+  setTimeout(() => {
+    if (loaderFill) loaderFill.style.width = "100%";
+    if (loaderText) loaderText.textContent = "Ready";
+    setTimeout(() => loader.classList.add("is-hidden"), 200);
+    setTimeout(() => loader.remove(), 700);
   }, remaining);
 }
 
-if (loadingScreen) {
+if (loader) {
   let progress = 0;
-  const progressTimer = window.setInterval(() => {
-    progress = Math.min(progress + Math.ceil(Math.random() * 12), 96);
-    if (loaderProgress) {
-      loaderProgress.textContent = `${progress}%`;
-    }
-
-    if (progress >= 96) {
-      window.clearInterval(progressTimer);
-    }
-  }, 110);
+  const progressTimer = setInterval(() => {
+    progress = Math.min(progress + Math.ceil(Math.random() * 14), 96);
+    if (loaderFill) loaderFill.style.width = `${progress}%`;
+    if (progress >= 96) clearInterval(progressTimer);
+  }, 100);
 
   window.addEventListener("load", () => {
-    window.clearInterval(progressTimer);
+    clearInterval(progressTimer);
     hideLoader();
   });
 
-  window.setTimeout(hideLoader, 2600);
+  setTimeout(hideLoader, 2400);
 }

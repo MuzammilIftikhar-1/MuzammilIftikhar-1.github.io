@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="MetaHuman icon">
+  <rect width="64" height="64" rx="12" fill="#09090b" stroke="#1f2937" stroke-width="1"/>
+  <!-- Face outline wireframe -->
+  <path d="M32 12C20 12 16 22 16 34C16 46 24 52 32 52C40 52 48 46 48 34C48 22 44 12 32 12Z" stroke="#00F2FE" stroke-width="2" stroke-linejoin="round"/>
+  <!-- Grid lines -->
+  <path d="M16 34H48M32 12V52" stroke="#00F2FE" stroke-width="1.5" opacity="0.6"/>
+  <path d="M20 24C24 28 40 28 44 24" stroke="#00F2FE" stroke-width="1.5" opacity="0.8"/>
+  <path d="M22 42C26 46 38 46 42 42" stroke="#00F2FE" stroke-width="1.5" opacity="0.8"/>
+  <!-- Eyes -->
+  <circle cx="26" cy="28" r="2.5" fill="#00F2FE"/>
+  <circle cx="38" cy="28" r="2.5" fill="#00F2FE"/>
+</svg>

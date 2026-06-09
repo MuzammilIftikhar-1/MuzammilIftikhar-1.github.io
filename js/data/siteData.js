@@ -82,21 +82,21 @@ window.siteData = {
       {
         title: "Creative Toolkit",
         text:
-          "Unreal Engine, Blueprint, C++, C#, Blender, MetaHuman, Photoshop, Illustrator, and Figma.",
+          "Blender, C++, C#, Unity, Unreal Engine, UEFN, Figma, Adobe Photoshop, and Adobe Illustrator.",
         showToolkit: true,
         open: false,
       },
     ],
     toolkit: [
-      { key: "unreal", label: "Unreal Engine", iconPath: "assets/icons/Unreal Engine.jpg" },
-      { key: "blueprint", label: "Blueprint", iconPath: "assets/icons/blueprint.svg" },
+      { key: "blender", label: "Blender", iconPath: "assets/icons/blender.svg" },
       { key: "cpp", label: "C++", iconPath: "assets/icons/cplusplus.svg" },
-      { key: "csharp", label: "C#", icon: "C#" },
-      { key: "blender", label: "Blender", icon: "BL" },
-      { key: "metahuman", label: "MetaHuman", icon: "MH" },
-      { key: "photoshop", label: "Photoshop", icon: "PS" },
-      { key: "illustrator", label: "Illustrator", icon: "AI" },
-      { key: "figma", label: "Figma", icon: "FG" },
+      { key: "csharp", label: "C#", iconPath: "assets/icons/csharp.svg" },
+      { key: "unity", label: "Unity", iconPath: "assets/icons/unity.svg" },
+      { key: "unreal", label: "Unreal Engine", iconPath: "assets/icons/unreal-engine.svg" },
+      { key: "uefn", label: "UEFN", iconPath: "assets/icons/uefn.svg" },
+      { key: "figma", label: "Figma", iconPath: "assets/icons/figma.svg" },
+      { key: "photoshop", label: "Adobe Photoshop", iconPath: "assets/icons/photoshop.svg" },
+      { key: "illustrator", label: "Adobe Illustrator", iconPath: "assets/icons/illustrator.svg" },
     ],
   },
 
@@ -156,6 +156,7 @@ window.siteData = {
       {
       title: "VR Drone Destruction Prototype",
       category: "Unreal Engine Projects",
+      featured: true,
       tags: "Unreal Engine 5.4 | Blueprints | VR Prototype | Drone Controller | Collision System | Destruction Mechanic | Keyboard Input",
       description:
         "A Kamikaze Drone VR prototype built in Unreal Engine 5.4 using Blueprints. The drone can be controlled through a VR headset and motion controllers or with keyboard keybinds. The core mechanic focuses on drone movement, collision detection, and self-destruction on impact, creating a functional prototype for impact-based drone gameplay.",
@@ -252,6 +253,7 @@ window.siteData = {
     {
       title: "4v4 Box Fight Game",
       category: "UEFN Projects",
+      featured: true,
       tags: "UEFN | Fortnite Creative | Box Fight | Multiplayer | Level Design | Item Spawners | Timers | Barrier System",
       description:
         "A competitive 4v4 box fight game built in UEFN, featuring team-based gameplay, arena barriers, item spawners, hub controllers, start timers, end timers, and structured match flow. The project focused on multiplayer level design, device-based logic, player flow, and creating a complete competitive Fortnite Creative experience.",
@@ -318,6 +320,7 @@ window.siteData = {
      {
       title: "Forest River Valley",
       category: "Environments",
+      featured: true,
       tags: "Unreal Engine Fortnite Editor | Lighting | Environment Art",
       description:
         "A stylized riverside forest environment built in Unreal Engine, featuring a turquoise river, rocky cliffs, dense foliage, trees, a wooden cabin, and waterfall elements. The scene focuses on natural composition, exploration, atmosphere, and a clean playable layout.",
@@ -353,6 +356,7 @@ window.siteData = {
     email: "muzammiliftikhar24@gmail.com",
     linkedin: "https://www.linkedin.com/in/muzammili1/",
     github: "https://github.com/MuzammilIftikhar-1",
+    resumePath: "assets/docs/resume.pdf",
     links: [
       {
         key: "linkedin",
