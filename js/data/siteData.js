@@ -188,7 +188,7 @@ window.siteData = {
       description:
         "A C++ Unreal Engine project focused on dungeon-style gameplay, gameplay programming, and code-based system implementation.",
       videoPath: "assets/videos/dungeon-scape.mp4",
-      videoAvailable: false,
+      videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/dungeon-scape.svg",
       imagePaths: ["assets/images/project-thumbnails/dungeon-scape.svg"],
       links: [],
@@ -298,7 +298,7 @@ window.siteData = {
       tags: "Unity | C# | Unity Essentials | Rigidbody | Colliders | 2D Triggers | Game Fundamentals",
       description:
         "A beginner-friendly Unity project completed through the Unity Essentials Pathway, focused on Rigidbody physics, Colliders, 2D Triggers, basic C# scripting, object interactions, score logic, and scene organization. The project helped build a strong foundation in Unity’s core systems for 2D and 3D game development.",
-      videoPath: "assets/videos/Unity1.mp4",
+      videoPath: "assets/videos/Unity2.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/uefn-racing.svg",
       imagePaths: ["assets/images/project-thumbnails/uefn-racing.svg"],
