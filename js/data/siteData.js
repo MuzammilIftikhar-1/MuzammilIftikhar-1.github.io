@@ -295,11 +295,7 @@ window.siteData = {
       videoAvailable: false,
       thumbnailPath: "assets/images/Base2.png",
       imagePaths: [
-        "assets/images/Base1.png",
         "assets/images/Base2.png",
-        "assets/images/Base3.png",
-        "assets/images/Base4.png",
-        "assets/images/Base5.png",
       ],
       links: [],
     },
