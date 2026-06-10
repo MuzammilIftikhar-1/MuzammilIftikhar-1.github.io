@@ -142,12 +142,12 @@ window.siteData = {
   // Optional links can be stored here for your notes, but the current design does not show them.
   projects: [
     {
-      title: "VR Simulator",
+      title: "VR Shooting Range",
       category: "Unreal Engine Projects",
       tags: "Unreal Engine | Blueprint | VR",
       description:
-        "An immersive VR training simulator built in Unreal Engine, designed for realistic interaction, weapon handling, performance, and next-gen virtual experiences.",
-      videoPath: "assets/videos/vr-simulator.mp4",
+        "A VR shooting range project made in Unreal Engine 5.4. It includes basic weapon handling, shooting mechanics, grenades, and smoke grenades. I focused on making the weapon interaction feel responsive in VR, along with aiming, throwing, and practicing inside a simple shooting range environment using Blueprints.",
+      videoPath: "assets/videos/VR Shooting.mp4",
       videoAvailable: false,
       thumbnailPath: "assets/images/project-thumbnails/vr-simulator.svg",
       imagePaths: ["assets/images/project-thumbnails/vr-simulator.svg"],
