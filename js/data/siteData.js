@@ -144,6 +144,7 @@ window.siteData = {
     {
       title: "VR Shooting Range",
       category: "Unreal Engine Projects",
+      featured: true,
       tags: "Unreal Engine | Blueprint | VR",
       description:
         "A VR shooting range project made in Unreal Engine 5.4. It includes basic weapon handling, shooting mechanics, grenades, and smoke grenades. I focused on making the weapon interaction feel responsive in VR, along with aiming, throwing, and practicing inside a simple shooting range environment using Blueprints.",
@@ -157,7 +158,6 @@ window.siteData = {
       {
       title: "VR Drone Destruction Prototype",
       category: "Unreal Engine Projects",
-      featured: true,
       tags: "Unreal Engine 5.4 | Blueprints | VR Prototype | Drone Controller | Collision System | Destruction Mechanic | Keyboard Input",
       description:
         "A Kamikaze Drone VR prototype built in Unreal Engine 5.4 using Blueprints. The drone can be controlled through a VR headset and motion controllers or with keyboard keybinds. The core mechanic focuses on drone movement, collision detection, and self-destruction on impact, creating a functional prototype for impact-based drone gameplay.",
@@ -226,6 +226,7 @@ window.siteData = {
     {
       title: "UEFN Racing",
       category: "UEFN Projects",
+      featured: true,
       tags: "UEFN | Racing | Multiplayer",
       description:
         "A racing experience built in UEFN with custom tracks, checkpoints, competitive flow, and multiplayer gameplay structure.",
@@ -254,10 +255,9 @@ window.siteData = {
     {
       title: "4v4 Box Fight Game",
       category: "UEFN Projects",
-      featured: true,
       tags: "UEFN | Fortnite Creative | Box Fight | Multiplayer | Level Design | Item Spawners | Timers | Barrier System",
       description:
-        "A competitive 4v4 box fight game built in UEFN, featuring team-based gameplay, arena barriers, item spawners, hub controllers, start timers, end timers, and structured match flow. The project focused on multiplayer level design, device-based logic, player flow, and creating a complete competitive Fortnite Creative experience.",
+        "A competitive 4v4 box fight game built in UEFN, featuring team-based gameplay, arena barriers, item spawners, hub controllers, start timers, and structured match flow. The project focused on multiplayer level design, device-based logic, player flow, and creating a complete competitive Fortnite Creative experience.",
       videoPath: "assets/videos/UEFN 4V4.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/uefn-1v1.svg",
@@ -309,6 +309,7 @@ window.siteData = {
     {
       title: "Cinematic Environment",
       category: "Environments",
+      featured: true,
       tags: "Unreal Engine | Lighting | Environment Art",
       description:
         "A cinematic environment showcase focused on mood, composition, lighting, and world-building presentation.",
@@ -321,7 +322,6 @@ window.siteData = {
      {
       title: "Forest River Valley",
       category: "Environments",
-      featured: true,
       tags: "Unreal Engine Fortnite Editor | Lighting | Environment Art",
       description:
         "A stylized riverside forest environment built in Unreal Engine, featuring a turquoise river, rocky cliffs, dense foliage, trees, a wooden cabin, and waterfall elements. The scene focuses on natural composition, exploration, atmosphere, and a clean playable layout.",
