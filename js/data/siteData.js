@@ -148,7 +148,7 @@ window.siteData = {
       description:
         "A VR shooting range project made in Unreal Engine 5.4. It includes basic weapon handling, shooting mechanics, grenades, and smoke grenades. I focused on making the weapon interaction feel responsive in VR, along with aiming, throwing, and practicing inside a simple shooting range environment using Blueprints.",
       videoPath: "assets/videos/VR Shooting.mp4",
-      videoAvailable: false,
+      videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/vr-simulator.svg",
       imagePaths: ["assets/images/project-thumbnails/vr-simulator.svg"],
       links: [],
