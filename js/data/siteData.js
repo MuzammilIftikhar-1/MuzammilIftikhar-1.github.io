@@ -130,6 +130,7 @@ window.siteData = {
     "All Projects",
     "Unreal Engine Projects",
     "UEFN Projects",
+    "Unity Projects",
     "Environments",
     "Other Work",
   ],
