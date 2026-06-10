@@ -639,11 +639,40 @@ function buildResumeCard() {
   return card;
 }
 
+function buildPortfolioPdfCard() {
+  const card = document.createElement("a");
+  card.className = "contact-card contact-card--portfolio-pdf sound-action";
+  card.href = "assets/docs/portfolio.pdf";
+  card.download = "";
+  card.target = "_blank";
+  card.rel = "noreferrer";
+
+  const icon = document.createElement("span");
+  icon.className = "contact-icon";
+  icon.textContent = "📁";
+
+  const body = document.createElement("div");
+  body.className = "contact-card__body";
+  const title = document.createElement("h3");
+  title.textContent = "Website PDF";
+  const text = document.createElement("p");
+  text.textContent = "Download the full website as a PDF slide deck.";
+  body.append(title, text);
+
+  const action = document.createElement("span");
+  action.className = "contact-action";
+  action.textContent = "Download →";
+
+  card.append(icon, body, action);
+  return card;
+}
+
 function renderContactCards() {
   if (!contactGrid) return;
   contactGrid.replaceChildren();
   siteData.contact.links.forEach((link) => contactGrid.append(buildContactCard(link)));
   contactGrid.append(buildResumeCard());
+  contactGrid.append(buildPortfolioPdfCard());
 }
 
 function renderFeaturedProjects() {

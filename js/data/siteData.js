@@ -357,7 +357,7 @@ window.siteData = {
     email: "muzammiliftikhar24@gmail.com",
     linkedin: "https://www.linkedin.com/in/muzammili1/",
     github: "https://github.com/MuzammilIftikhar-1",
-    resumePath: "assets/docs/resume.pdf",
+    resumePath: "assets/docs/Muzammil Iftikhar CV_Resume.pdf",
     links: [
       {
         key: "linkedin",

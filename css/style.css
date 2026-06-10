@@ -1671,3 +1671,9 @@ img { max-width: 100%; display: block; }
     transition-duration: 0.01ms !important;
   }
 }
+
+@media (min-width: 768px) {
+  .contact-card--portfolio-pdf {
+    grid-column: span 2;
+  }
+}
