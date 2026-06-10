@@ -130,7 +130,7 @@ window.siteData = {
     "All Projects",
     "Unreal Engine Projects",
     "UEFN Projects",
-    "Unity Projects",
+    
     "Environments",
     "Other Work",
   ],
@@ -151,7 +151,7 @@ window.siteData = {
       videoPath: "assets/videos/VR Shooting.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/vr_shooting_1.png",
-      imagePaths: ["assets/images/project-thumbnails/vr_shooting_1.png", "assets/images/project-thumbnails/vr_shooting_2.png", "assets/images/project-thumbnails/vr_shooting_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/vr_shooting_1.png"],
       links: [],
     },
 
@@ -164,11 +164,9 @@ window.siteData = {
       videoPath: "assets/videos/Drone VR Game.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/drone_vr_game_1.png",
-      imagePaths: ["assets/images/project-thumbnails/drone_vr_game_1.png", "assets/images/project-thumbnails/drone_vr_game_2.png", "assets/images/project-thumbnails/drone_vr_game_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/drone_vr_game_1.png"],
       links: [],
     },
-
-
 
     {
       title: "Jump Spirit",
@@ -179,7 +177,7 @@ window.siteData = {
       videoPath: "assets/videos/parkour (2).mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/parkour_2_1.png",
-      imagePaths: ["assets/images/project-thumbnails/parkour_2_1.png", "assets/images/project-thumbnails/parkour_2_2.png", "assets/images/project-thumbnails/parkour_2_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/parkour_2_1.png"],
       links: [],
     },
     {
@@ -191,7 +189,7 @@ window.siteData = {
       videoPath: "assets/videos/Dungeon Escape.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/dungeon_escape_1.png",
-      imagePaths: ["assets/images/project-thumbnails/dungeon_escape_1.png", "assets/images/project-thumbnails/dungeon_escape_2.png", "assets/images/project-thumbnails/dungeon_escape_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/dungeon_escape_1.png"],
       links: [],
     },
 
@@ -204,24 +202,9 @@ window.siteData = {
       videoPath: "assets/videos/Drone .mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/drone__1.png",
-      imagePaths: ["assets/images/project-thumbnails/drone__1.png", "assets/images/project-thumbnails/drone__2.png", "assets/images/project-thumbnails/drone__3.png"],
+      imagePaths: ["assets/images/project-thumbnails/drone__1.png"],
       links: [],
     },
-
-
-       {
-      title: "Beam Blaster",
-      category: "Unreal Engine Projects",
-      tags: "Unreal Engine | Blueprints | Arcade Game | Survival Mechanics | Collectibles | Score System | Gameplay Prototype",
-      description:
-        "An arcade-style Unreal Engine prototype where the player navigates through the sky, avoids incoming red beams, and collects orbs to increase the score. The project focused on Blueprint scripting, survival mechanics, collectibles, scoring logic, and improving gameplay fundamentals through iteration.",
-      videoPath: "assets/videos/Beam Blaster.mp4",
-      videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/beam_blaster_1.png",
-      imagePaths: ["assets/images/project-thumbnails/beam_blaster_1.png", "assets/images/project-thumbnails/beam_blaster_2.png", "assets/images/project-thumbnails/beam_blaster_3.png"],
-      links: [],
-    },
-
 
     {
       title: "UEFN Racing",
@@ -233,10 +216,9 @@ window.siteData = {
       videoPath: "assets/videos/uefn-racing.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/uefn-racing_1.png",
-      imagePaths: ["assets/images/project-thumbnails/uefn-racing_1.png", "assets/images/project-thumbnails/uefn-racing_2.png", "assets/images/project-thumbnails/uefn-racing_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/uefn-racing_1.png"],
       links: [],
     },
-    
 
     {
       title: "UEFN 1v1 Ability Arena",
@@ -247,10 +229,9 @@ window.siteData = {
       videoPath: "assets/videos/uefn1-1v.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/uefn1-1v_1.png",
-      imagePaths: ["assets/images/project-thumbnails/uefn1-1v_1.png", "assets/images/project-thumbnails/uefn1-1v_2.png", "assets/images/project-thumbnails/uefn1-1v_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/uefn1-1v_1.png"],
       links: [],
     },
-
 
     {
       title: "4v4 Box Fight Game",
@@ -261,7 +242,7 @@ window.siteData = {
       videoPath: "assets/videos/UEFN 4V4.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/uefn_4v4_1.png",
-      imagePaths: ["assets/images/project-thumbnails/uefn_4v4_1.png", "assets/images/project-thumbnails/uefn_4v4_2.png", "assets/images/project-thumbnails/uefn_4v4_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/uefn_4v4_1.png"],
       links: [],
     },
 
@@ -274,35 +255,7 @@ window.siteData = {
       videoPath: "assets/videos/fallguys.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/fallguys_1.png",
-      imagePaths: ["assets/images/project-thumbnails/fallguys_1.png", "assets/images/project-thumbnails/fallguys_2.png", "assets/images/project-thumbnails/fallguys_3.png"],
-      links: [],
-    },
-
-
-     {
-      title: "Local Multiplayer Vehicle Dodging Game",
-      category: "Unity Projects",
-      tags: "Unity | C# | Local Multiplayer | Split Screen | Vehicle Game | Obstacle Spawning | Input System",
-      description:
-        "A 2-player local multiplayer vehicle dodging game built in Unity using C#. The project features player-controlled cars, dynamic obstacle spawning, custom input axes, and split-screen cameras. It focused on learning Unity’s Input Manager, camera viewport setup, player movement, and local multiplayer gameplay logic.",
-      videoPath: "assets/videos/Unity1.mp4",
-      videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/unity1_1.png",
-      imagePaths: ["assets/images/project-thumbnails/unity1_1.png", "assets/images/project-thumbnails/unity1_2.png", "assets/images/project-thumbnails/unity1_3.png"],
-      links: [],
-    },
-
-
-    {
-      title: "Unity Essentials Game Project",
-      category: "Unity Projects",
-      tags: "Unity | C# | Unity Essentials | Rigidbody | Colliders | 2D Triggers | Game Fundamentals",
-      description:
-        "A beginner-friendly Unity project completed through the Unity Essentials Pathway, focused on Rigidbody physics, Colliders, 2D Triggers, basic C# scripting, object interactions, score logic, and scene organization. The project helped build a strong foundation in Unity’s core systems for 2D and 3D game development.",
-      videoPath: "assets/videos/Unity2.mp4",
-      videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/unity2_1.png",
-      imagePaths: ["assets/images/project-thumbnails/unity2_1.png", "assets/images/project-thumbnails/unity2_2.png", "assets/images/project-thumbnails/unity2_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/fallguys_1.png"],
       links: [],
     },
 
@@ -316,7 +269,7 @@ window.siteData = {
       videoPath: "assets/videos/dungeon-scape.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/dungeon-scape_1.png",
-      imagePaths: ["assets/images/project-thumbnails/dungeon-scape_1.png", "assets/images/project-thumbnails/dungeon-scape_2.png", "assets/images/project-thumbnails/dungeon-scape_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/dungeon-scape_1.png"],
       links: [],
     },
      {
@@ -328,7 +281,7 @@ window.siteData = {
       videoPath: "assets/videos/UEFN Enivornment.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/uefn_enivornment_1.png",
-      imagePaths: ["assets/images/project-thumbnails/uefn_enivornment_1.png", "assets/images/project-thumbnails/uefn_enivornment_2.png", "assets/images/project-thumbnails/uefn_enivornment_3.png"],
+      imagePaths: ["assets/images/project-thumbnails/uefn_enivornment_1.png"],
       links: [],
     },
 
