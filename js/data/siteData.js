@@ -188,7 +188,7 @@ window.siteData = {
       tags: "Unreal Engine | C++ | Dungeon Gameplay",
       description:
         "A C++ Unreal Engine project focused on dungeon-style gameplay, gameplay programming, and code-based system implementation.",
-      videoPath: "assets/videos/dungeon-scape.mp4",
+      videoPath: "assets/videos/Dungeon Escape.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/dungeon-scape.svg",
       imagePaths: ["assets/images/project-thumbnails/dungeon-scape.svg"],
@@ -312,7 +312,7 @@ window.siteData = {
       tags: "Unreal Engine | Lighting | Environment Art",
       description:
         "A cinematic environment showcase focused on mood, composition, lighting, and world-building presentation.",
-      videoPath: "assets/videos/Unreal Engine Enviornment.mp4",
+      videoPath: "assets/videos/dungeon-scape.mp4",
       videoAvailable: true,
       thumbnailPath: "assets/images/project-thumbnails/environment-study.svg",
       imagePaths: ["assets/images/project-thumbnails/environment-study.svg"],
