@@ -130,9 +130,8 @@ window.siteData = {
     "All Projects",
     "Unreal Engine Projects",
     "UEFN Projects",
-    
+    "Unity Projects",
     "Environments",
-    "Other Work",
   ],
   defaultCategory: "Unreal Engine Projects",
 
@@ -206,6 +205,19 @@ window.siteData = {
       links: [],
     },
 
+       {
+      title: "Beam Blaster",
+      category: "Unreal Engine Projects",
+      tags: "Unreal Engine | Blueprints | Arcade Game | Survival Mechanics | Collectibles | Score System | Gameplay Prototype",
+      description:
+        "An arcade-style Unreal Engine prototype where the player navigates through the sky, avoids incoming red beams, and collects orbs to increase the score. The project focused on Blueprint scripting, survival mechanics, collectibles, scoring logic, and improving gameplay fundamentals through iteration.",
+      videoPath: "assets/videos/Beam Blaster.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/beam_blaster_1.png",
+      imagePaths: ["assets/images/project-thumbnails/beam_blaster_1.png"],
+      links: [],
+    },
+
     {
       title: "UEFN Racing",
       category: "UEFN Projects",
@@ -259,6 +271,32 @@ window.siteData = {
       links: [],
     },
 
+     {
+      title: "Local Multiplayer Vehicle Dodging Game",
+      category: "Unity Projects",
+      tags: "Unity | C# | Local Multiplayer | Split Screen | Vehicle Game | Obstacle Spawning | Input System",
+      description:
+        "A 2-player local multiplayer vehicle dodging game built in Unity using C#. The project features player-controlled cars, dynamic obstacle spawning, custom input axes, and split-screen cameras. It focused on learning Unity’s Input Manager, camera viewport setup, player movement, and local multiplayer gameplay logic.",
+      videoPath: "assets/videos/Unity1.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/unity1_1.png",
+      imagePaths: ["assets/images/project-thumbnails/unity1_1.png"],
+      links: [],
+    },
+
+    {
+      title: "Unity Essentials Game Project",
+      category: "Unity Projects",
+      tags: "Unity | C# | Unity Essentials | Rigidbody | Colliders | 2D Triggers | Game Fundamentals",
+      description:
+        "A beginner-friendly Unity project completed through the Unity Essentials Pathway, focused on Rigidbody physics, Colliders, 2D Triggers, basic C# scripting, object interactions, score logic, and scene organization. The project helped build a strong foundation in Unity’s core systems for 2D and 3D game development.",
+      videoPath: "assets/videos/Unity2.mp4",
+      videoAvailable: true,
+      thumbnailPath: "assets/images/project-thumbnails/unity2_1.png",
+      imagePaths: ["assets/images/project-thumbnails/unity2_1.png"],
+      links: [],
+    },
+
     {
       title: "Cinematic Environment",
       category: "Environments",
@@ -295,7 +333,11 @@ window.siteData = {
       videoAvailable: false,
       thumbnailPath: "assets/images/Base2.png",
       imagePaths: [
+        "assets/images/Base1.png",
         "assets/images/Base2.png",
+        "assets/images/Base3.png",
+        "assets/images/Base4.png",
+        "assets/images/Base5.png",
       ],
       links: [],
     },
