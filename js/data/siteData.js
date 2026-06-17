@@ -9,8 +9,8 @@ window.siteData = {
 
   // Change fonts here. Use fonts already installed on your system, or a web-safe font stack.
   fonts: {
-    body: 'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
-    display: 'Georgia, "Times New Roman", serif',
+    body: 'Rajdhani, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    display: 'Orbitron, sans-serif',
   },
 
   // Main copy shown on the About page.
@@ -103,12 +103,12 @@ window.siteData = {
   // Swap these paths when you add your real image, video, or sound files.
   assets: {
     backgrounds: {
-      home: "assets/images/background-home.png",
-      about: "assets/images/background-about.png",
-      portfolio: "assets/images/background-home.png",
-      contact: "assets/images/background-contact.png",
+      home: "assets/images/background-home.webp",
+      about: "assets/images/background-about.webp",
+      portfolio: "assets/images/background-home.webp",
+      contact: "assets/images/background-contact.webp",
     },
-    profileImage: "assets/images/Muzammil Iftikhar.png",
+    profileImage: "assets/images/Muzammil Iftikhar.webp",
     clickSound: "assets/sounds/click.wav",
   },
 
@@ -149,8 +149,8 @@ window.siteData = {
         "A VR shooting range project made in Unreal Engine 5.4. It includes basic weapon handling, shooting mechanics, grenades, and smoke grenades. I focused on making the weapon interaction feel responsive in VR, along with aiming, throwing, and practicing inside a simple shooting range environment using Blueprints.",
       videoPath: "assets/videos/VR Shooting.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/vr_shooting_1.png",
-      imagePaths: ["assets/images/project-thumbnails/vr_shooting_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/vr_shooting_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/vr_shooting_1.webp"],
       links: [],
     },
 
@@ -162,8 +162,8 @@ window.siteData = {
         "A Kamikaze Drone VR prototype built in Unreal Engine 5.4 using Blueprints. The drone can be controlled through a VR headset and motion controllers or with keyboard keybinds. The core mechanic focuses on drone movement, collision detection, and self-destruction on impact, creating a functional prototype for impact-based drone gameplay.",
       videoPath: "assets/videos/Drone VR Game.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/drone_vr_game_1.png",
-      imagePaths: ["assets/images/project-thumbnails/drone_vr_game_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/drone_vr_game_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/drone_vr_game_1.webp"],
       links: [],
     },
 
@@ -175,8 +175,8 @@ window.siteData = {
         "A multiplayer parkour project focused on traversal, movement flow, responsive gameplay, and player interaction.",
       videoPath: "assets/videos/parkour (2).mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/parkour_2_1.png",
-      imagePaths: ["assets/images/project-thumbnails/parkour_2_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/parkour_2_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/parkour_2_1.webp"],
       links: [],
     },
     {
@@ -187,8 +187,8 @@ window.siteData = {
         "A C++ Unreal Engine project focused on dungeon-style gameplay, gameplay programming, and code-based system implementation.",
       videoPath: "assets/videos/Dungeon Escape.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/dungeon_escape_1.png",
-      imagePaths: ["assets/images/project-thumbnails/dungeon_escape_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/dungeon_escape_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/dungeon_escape_1.webp"],
       links: [],
     },
 
@@ -200,8 +200,8 @@ window.siteData = {
         "A third-person bot fight prototype built in Unreal Engine 5.4, featuring projectile combat, flying enemies, trigger-based enemy spawning, dynamic crosshair feedback, damage logic, impact emitters, and MetaSound experimentation. The project focused on improving gameplay fundamentals, combat pacing, visual feedback, and cleaner Blueprint implementation.",
       videoPath: "assets/videos/Drone .mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/drone__1.png",
-      imagePaths: ["assets/images/project-thumbnails/drone__1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/drone__1.webp",
+      imagePaths: ["assets/images/project-thumbnails/drone__1.webp"],
       links: [],
     },
 
@@ -213,8 +213,8 @@ window.siteData = {
         "An arcade-style Unreal Engine prototype where the player navigates through the sky, avoids incoming red beams, and collects orbs to increase the score. The project focused on Blueprint scripting, survival mechanics, collectibles, scoring logic, and improving gameplay fundamentals through iteration.",
       videoPath: "assets/videos/Beam Blaster.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/beam_blaster_1.png",
-      imagePaths: ["assets/images/project-thumbnails/beam_blaster_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/beam_blaster_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/beam_blaster_1.webp"],
       links: [],
     },
 
@@ -227,8 +227,8 @@ window.siteData = {
         "A racing experience built in UEFN with custom tracks, checkpoints, competitive flow, and multiplayer gameplay structure.",
       videoPath: "assets/videos/uefn-racing.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/uefn-racing_1.png",
-      imagePaths: ["assets/images/project-thumbnails/uefn-racing_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/uefn-racing_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/uefn-racing_1.webp"],
       links: [],
     },
 
@@ -240,8 +240,8 @@ window.siteData = {
         "A 1v1 ability-based arena project where players use different abilities in a competitive multiplayer environment.",
       videoPath: "assets/videos/uefn1-1v.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/uefn1-1v_1.png",
-      imagePaths: ["assets/images/project-thumbnails/uefn1-1v_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/uefn1-1v_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/uefn1-1v_1.webp"],
       links: [],
     },
 
@@ -253,8 +253,8 @@ window.siteData = {
         "A competitive 4v4 box fight game built in UEFN, featuring team-based gameplay, arena barriers, item spawners, hub controllers, start timers, and structured match flow. The project focused on multiplayer level design, device-based logic, player flow, and creating a complete competitive Fortnite Creative experience.",
       videoPath: "assets/videos/UEFN 4V4.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/uefn_4v4_1.png",
-      imagePaths: ["assets/images/project-thumbnails/uefn_4v4_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/uefn_4v4_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/uefn_4v4_1.webp"],
       links: [],
     },
 
@@ -266,8 +266,8 @@ window.siteData = {
         "A Fall Guys-inspired obstacle course game built in UEFN, featuring timing-based challenges, platforming obstacles, player navigation, and competitive race-style gameplay. The project focused on level design, player flow, obstacle placement, pacing, and creating a fun playable experience.",
       videoPath: "assets/videos/fallguys.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/fallguys_1.png",
-      imagePaths: ["assets/images/project-thumbnails/fallguys_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/fallguys_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/fallguys_1.webp"],
       links: [],
     },
 
@@ -279,8 +279,8 @@ window.siteData = {
         "A 2-player local multiplayer vehicle dodging game built in Unity using C#. The project features player-controlled cars, dynamic obstacle spawning, custom input axes, and split-screen cameras. It focused on learning Unity’s Input Manager, camera viewport setup, player movement, and local multiplayer gameplay logic.",
       videoPath: "assets/videos/Unity1.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/unity1_1.png",
-      imagePaths: ["assets/images/project-thumbnails/unity1_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/unity1_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/unity1_1.webp"],
       links: [],
     },
 
@@ -292,8 +292,8 @@ window.siteData = {
         "A beginner-friendly Unity project completed through the Unity Essentials Pathway, focused on Rigidbody physics, Colliders, 2D Triggers, basic C# scripting, object interactions, score logic, and scene organization. The project helped build a strong foundation in Unity’s core systems for 2D and 3D game development.",
       videoPath: "assets/videos/Unity2.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/unity2_1.png",
-      imagePaths: ["assets/images/project-thumbnails/unity2_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/unity2_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/unity2_1.webp"],
       links: [],
     },
 
@@ -306,8 +306,8 @@ window.siteData = {
         "A cinematic environment showcase focused on mood, composition, lighting, and world-building presentation.",
       videoPath: "assets/videos/dungeon-scape.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/dungeon-scape_1.png",
-      imagePaths: ["assets/images/project-thumbnails/dungeon-scape_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/dungeon-scape_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/dungeon-scape_1.webp"],
       links: [],
     },
      {
@@ -318,8 +318,8 @@ window.siteData = {
         "A stylized riverside forest environment built in Unreal Engine, featuring a turquoise river, rocky cliffs, dense foliage, trees, a wooden cabin, and waterfall elements. The scene focuses on natural composition, exploration, atmosphere, and a clean playable layout.",
       videoPath: "assets/videos/UEFN Enivornment.mp4",
       videoAvailable: true,
-      thumbnailPath: "assets/images/project-thumbnails/uefn_enivornment_1.png",
-      imagePaths: ["assets/images/project-thumbnails/uefn_enivornment_1.png"],
+      thumbnailPath: "assets/images/project-thumbnails/uefn_enivornment_1.webp",
+      imagePaths: ["assets/images/project-thumbnails/uefn_enivornment_1.webp"],
       links: [],
     },
 
@@ -331,13 +331,9 @@ window.siteData = {
         "A snowy mountain village environment built in Unreal Engine, featuring wooden cabins, watchtowers, frozen terrain, pine forests, rocky cliffs, bridges, fences, and environmental props. The scene focuses on atmosphere, scale, exploration, and strong visual composition, creating the feeling of an isolated winter outpost deep in the mountains..",
       videoPath: "assets/videos/gameplay-tools.mp4",
       videoAvailable: false,
-      thumbnailPath: "assets/images/Base2.png",
+      thumbnailPath: "assets/images/Base2.webp",
       imagePaths: [
-        "assets/images/Base1.png",
-        "assets/images/Base2.png",
-        "assets/images/Base3.png",
-        "assets/images/Base4.png",
-        "assets/images/Base5.png",
+        "assets/images/Base2.webp",
       ],
       links: [],
     },
