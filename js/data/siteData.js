@@ -9,7 +9,7 @@ window.siteData = {
 
   // Change fonts here. Use fonts already installed on your system, or a web-safe font stack.
   fonts: {
-    body: 'Rajdhani, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    body: 'Rajdhani, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     display: 'Orbitron, sans-serif',
   },
 
