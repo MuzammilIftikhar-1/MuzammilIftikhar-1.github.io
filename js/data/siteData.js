@@ -82,18 +82,21 @@ window.siteData = {
       {
         title: "Creative Toolkit",
         text:
-          "Blender, C++, C#, Unity, Unreal Engine, UEFN, Figma, Adobe Photoshop, and Adobe Illustrator.",
+          "Unreal Engine, Blueprints, UEFN, C++, C#, Unity, VR, MetaHuman, Blender, Figma, Adobe Photoshop, and Adobe Illustrator.",
         showToolkit: true,
         open: false,
       },
     ],
     toolkit: [
-      { key: "blender", label: "Blender", iconPath: "assets/icons/blender.svg" },
+      { key: "unreal", label: "Unreal Engine", iconPath: "assets/icons/unreal-engine.webp" },
+      { key: "blueprints", label: "Unreal Blueprints", iconPath: "assets/icons/unreal-engine-blueprints.webp" },
+      { key: "uefn", label: "UEFN", iconPath: "assets/icons/uefn.webp" },
       { key: "cpp", label: "C++", iconPath: "assets/icons/cplusplus.svg" },
-      { key: "csharp", label: "C#", iconPath: "assets/icons/csharp.svg" },
-      { key: "unity", label: "Unity", iconPath: "assets/icons/unity.svg" },
-      { key: "unreal", label: "Unreal Engine", iconPath: "assets/icons/unreal-engine.svg" },
-      { key: "uefn", label: "UEFN", iconPath: "assets/icons/uefn.svg" },
+      { key: "csharp", label: "C#", iconPath: "assets/icons/csharp.webp" },
+      { key: "unity", label: "Unity", iconPath: "assets/icons/unity.webp" },
+      { key: "vr", label: "Virtual Reality (VR)", iconPath: "assets/icons/vr.webp" },
+      { key: "metahuman", label: "MetaHuman", iconPath: "assets/icons/metahuman.webp" },
+      { key: "blender", label: "Blender", iconPath: "assets/icons/blender.svg" },
       { key: "figma", label: "Figma", iconPath: "assets/icons/figma.svg" },
       { key: "photoshop", label: "Adobe Photoshop", iconPath: "assets/icons/photoshop.svg" },
       { key: "illustrator", label: "Adobe Illustrator", iconPath: "assets/icons/illustrator.svg" },
@@ -154,7 +157,7 @@ window.siteData = {
       links: [],
     },
 
-      {
+    {
       title: "VR Drone Destruction Prototype",
       category: "Unreal Engine Projects",
       tags: "Unreal Engine 5.4 | Blueprints | VR Prototype | Drone Controller | Collision System | Destruction Mechanic | Keyboard Input",
@@ -192,7 +195,7 @@ window.siteData = {
       links: [],
     },
 
-     {
+    {
       title: "Bot Fight Game",
       category: "Unreal Engine Projects",
       tags: "Unreal Engine | Blueprints | Projectile Combat | Damage System | Enemy Spawning | Dynamic Crosshair | MetaSounds",
@@ -205,7 +208,7 @@ window.siteData = {
       links: [],
     },
 
-       {
+    {
       title: "Beam Blaster",
       category: "Unreal Engine Projects",
       tags: "Unreal Engine | Blueprints | Arcade Game | Survival Mechanics | Collectibles | Score System | Gameplay Prototype",
@@ -258,7 +261,7 @@ window.siteData = {
       links: [],
     },
 
-     {
+    {
       title: "Fall Guys Style Obstacle Game",
       category: "UEFN Projects",
       tags: "UEFN | Fortnite Creative | Level Design | Obstacle Course | Platforming | Player Flow | Gameplay Prototype",
@@ -271,7 +274,7 @@ window.siteData = {
       links: [],
     },
 
-     {
+    {
       title: "Local Multiplayer Vehicle Dodging Game",
       category: "Unity Projects",
       tags: "Unity | C# | Local Multiplayer | Split Screen | Vehicle Game | Obstacle Spawning | Input System",
@@ -310,7 +313,7 @@ window.siteData = {
       imagePaths: ["assets/images/project-thumbnails/dungeon-scape_1.webp"],
       links: [],
     },
-     {
+    {
       title: "Forest River Valley",
       category: "Environments",
       tags: "Unreal Engine Fortnite Editor | Lighting | Environment Art",
@@ -341,31 +344,39 @@ window.siteData = {
 
   // Update your contact links here.
   contact: {
-    email: "immuzammil1999@gmail.com",
+    email: "muzammiliftikhar24@gmail.com",
     linkedin: "https://www.linkedin.com/in/muzammili1/",
     github: "https://github.com/MuzammilIftikhar-1",
-    resumePath: "assets/docs/Muzammil Iftikhar CV_Resume.pdf",
+    discord: "https://discord.com/users/muzammil_iftikhar",
+    resumePath: "assets/docs/Muzammiliftikhar24.pdf",
     links: [
       {
         key: "linkedin",
-        icon: "in",
+        iconPath: "assets/icons/linkedin.webp",
         title: "LinkedIn",
         text: "Connect with me professionally.",
         action: "View Profile",
       },
       {
         key: "github",
-        icon: "GH",
+        iconPath: "assets/icons/github.webp",
         title: "GitHub",
         text: "Explore my code and projects.",
         action: "View Profile",
       },
       {
         key: "email",
-        icon: "@",
+        iconPath: "assets/icons/email.webp",
         title: "Email",
-        text: "Get in touch directly.",
+        text: "muzammiliftikhar24@gmail.com",
         action: "Send Message",
+      },
+      {
+        key: "discord",
+        iconPath: "assets/icons/discord.webp",
+        title: "Discord",
+        text: "Connect with me on Discord.",
+        action: "Get Discord Link",
       },
     ],
   },

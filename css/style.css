@@ -1361,6 +1361,13 @@ img { max-width: 100%; display: block; }
   background: var(--accent-soft);
 }
 
+.contact-icon img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
 .contact-card__body h3 {
   font-size: 0.9rem;
   font-weight: 600;
@@ -1561,6 +1568,47 @@ img { max-width: 100%; display: block; }
   color: #22c55e;
 }
 
+/* ── Discord Card Special ─────────────────────────────────── */
+.contact-card--discord .contact-icon {
+  background: rgba(88, 101, 242, 0.12);
+  border-color: rgba(88, 101, 242, 0.3);
+  color: #5865f2;
+}
+
+.contact-card--discord:hover {
+  border-color: rgba(88, 101, 242, 0.45);
+}
+
+/* ── LinkedIn Card Special ────────────────────────────────── */
+.contact-card--linkedin .contact-icon {
+  background: rgba(10, 102, 194, 0.12);
+  border-color: rgba(10, 102, 194, 0.3);
+}
+
+.contact-card--linkedin:hover {
+  border-color: rgba(10, 102, 194, 0.45);
+}
+
+/* ── GitHub Card Special ──────────────────────────────────── */
+.contact-card--github .contact-icon {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-card--github:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* ── Email Card Special ───────────────────────────────────── */
+.contact-card--email .contact-icon {
+  background: rgba(234, 67, 53, 0.1);
+  border-color: rgba(234, 67, 53, 0.25);
+}
+
+.contact-card--email:hover {
+  border-color: rgba(234, 67, 53, 0.45);
+}
+
 
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 767px) {
@@ -1673,7 +1721,7 @@ img { max-width: 100%; display: block; }
 }
 
 @media (min-width: 768px) {
-  .contact-card--portfolio-pdf {
+  .contact-card--resume {
     grid-column: span 2;
   }
 }

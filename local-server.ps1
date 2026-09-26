@@ -27,6 +27,7 @@ $mimeTypes = @{
   ".wav" = "audio/wav"
   ".mp4" = "video/mp4"
   ".pdf" = "application/pdf"
+  ".webp" = "image/webp"
 }
 
 function Write-Response {
