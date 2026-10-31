@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.min.css">
 </head>
 <body>
 
@@ -253,7 +253,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/vr_shooting_1.webp" preload="metadata">
                   <source src="assets/videos/vr-shooting.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/VR%20Shooting.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -296,7 +295,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/drone_vr_game_1.webp" preload="metadata">
                   <source src="assets/videos/drone-vr-game.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/Drone%20VR%20Game.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -339,7 +337,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/parkour_2_1.webp" preload="metadata">
                   <source src="assets/videos/parkour-mechanics-showcase.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/parkour%20(2).mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -382,7 +379,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/drone__1.webp" preload="metadata">
                   <source src="assets/videos/drone-bot-game.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/Drone%20.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -425,7 +421,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/dungeon_escape_1.webp" preload="metadata">
                   <source src="assets/videos/dungeon-escape.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/Dungeon%20Escape.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -468,7 +463,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/beam_blaster_1.webp" preload="metadata">
                   <source src="assets/videos/beam-blaster.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/Beam%20Blaster.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -509,7 +503,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/uefn-racing_1.webp" preload="metadata">
                   <source src="assets/videos/uefn-racing.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/uefn-racing.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -551,7 +544,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/uefn_4v4_1.webp" preload="metadata">
                   <source src="assets/videos/uefn-4v4.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/UEFN%204V4.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -592,7 +584,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/fallguys_1.webp" preload="metadata">
                   <source src="assets/videos/fallguys.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/fallguys.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -633,7 +624,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/unity1_1.webp" preload="metadata">
                   <source src="assets/videos/unity-car-dodge.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/Unity1.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -675,7 +665,6 @@
               <div class="tight-video-wrap">
                 <video autoplay muted playsinline loop poster="assets/images/project-thumbnails/uefn_enivornment_1.webp" preload="metadata">
                   <source src="assets/videos/uefn-environment.mp4" type="video/mp4">
-                  <source src="https://muzammiliftikhar-1.github.io/assets/videos/UEFN%20Enivornment.mp4" type="video/mp4">
                 </video>
               </div>
             </div>
@@ -833,6 +822,21 @@
           card.style.display = 'none';
         }
       });
+    }
+    // Intersection Observer for 60FPS battery & data optimized video playback
+    if ('IntersectionObserver' in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.2 });
+
+      document.querySelectorAll('video').forEach(v => videoObserver.observe(v));
     }
   </script>
 
