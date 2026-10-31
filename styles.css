@@ -989,13 +989,21 @@ a {
   font-size: 0.85rem;
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
 .footer-links a {
   color: var(--text-muted);
   font-size: 0.85rem;
+  transition: color var(--transition-fast);
 }
 
 .footer-links a:hover {
-  color: #fff;
+  color: #38bdf8;
 }
 
 /* Mobile & Tablet Responsiveness (CSS Grid/Flexbox QA) */
