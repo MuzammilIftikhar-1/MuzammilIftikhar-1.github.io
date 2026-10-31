@@ -717,6 +717,13 @@ a {
   font-weight: 600;
 }
 
+.tag-qa {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.25);
+  font-weight: 600;
+}
+
 .project-title {
   font-size: 1.4rem;
   font-weight: 700;
