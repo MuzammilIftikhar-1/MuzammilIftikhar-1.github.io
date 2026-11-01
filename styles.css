@@ -303,11 +303,17 @@ a {
   grid-template-columns: 460px 1fr;
   gap: 3.5rem;
   align-items: center;
+  width: 100%;
 }
 
-/* Technical Specification Card (replaces duplicate image) */
+/* Technical Specification Card */
 .about-card-wrapper {
   width: 100%;
+  align-self: center;
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .tech-spec-card {
@@ -317,6 +323,7 @@ a {
   box-shadow: var(--shadow-card), 0 0 25px rgba(56, 189, 248, 0.12);
   overflow: hidden;
   width: 100%;
+  align-self: center;
 }
 
 .spec-header {
