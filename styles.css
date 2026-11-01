@@ -112,10 +112,10 @@ a {
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #fff;
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.75rem;
 }
 
-.section-header .section-title {
+.section-header .section-title:last-child {
   margin-bottom: 0;
 }
 
@@ -478,8 +478,8 @@ a {
   color: var(--text-muted);
   max-width: 680px;
   line-height: 1.6;
-  margin-top: -1.75rem;
-  margin-bottom: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* Featured Studio Production Card */
